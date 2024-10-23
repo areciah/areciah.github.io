@@ -7,7 +7,6 @@ Gemfile.lock
 .jekyll-cache
 _site
 _posts/example.md
-assets/img/favicons/
 
 # RubyGems
 *.gem
