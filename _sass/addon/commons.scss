@@ -757,14 +757,14 @@ $sidebar-display: "sidebar-display";
       font-weight: 500;
       font-size: 1.5rem;
       letter-spacing: 0.5px;
-      color: rgba(134, 133, 133, 0.99);
+      color: rgba(255, 255, 255, 99%);
       font-family: "IBM Plex Sans KR", sans-serif;
     }
   }
 
   .site-subtitle {
     font-size: 95%;
-    color: var(--sidebar-muted-color);
+    color: rgba(255, 255, 255, 99%);
     line-height: 1.25rem;
     word-spacing: 1px;
     margin: 0.2rem 1.5rem 0.5rem 1.5rem;
