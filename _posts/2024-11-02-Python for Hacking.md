@@ -13,7 +13,7 @@ tags:
 ---
 
 ##### 이 블로그는 Black Hat Python을 기반으로 만들어졌습니다.
+___
 [Python for Hacking - 1](https://arecia.tistory.com/entry/Study-Python-For-Hacking-1)
-
----
+***
 ##### 책을 구매하지 않은 사용자가 이 블로그를 보면 문제가 발생할 수도 있기에 비밀번호는 개인적으로 연락을 주시면 알려드리겠습니다.
