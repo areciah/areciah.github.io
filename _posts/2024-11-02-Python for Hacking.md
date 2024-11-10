@@ -7,7 +7,7 @@ categories: [Hacking, Study]
 tags:
   [
     hacking,
-    python
+    python,
     develop
   ]
 ---
