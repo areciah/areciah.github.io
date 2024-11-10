@@ -1,5 +1,5 @@
 ---
-title: \[LOS] Writeup -2
+title: Lord of SQLinjection Writeup -2
 description: Lord of SQLinjection
 date: 2024-11-10 00:11:00 +09:00
 last_modified_at: 2024-11-10 00:11:00 +09:00
