@@ -1,0 +1,75 @@
+---
+layout: default
+title: CV
+description: 프로젝트, 수상 내역, 경력과 학력을 정리하는 CV.
+---
+{% assign cv = site.data.cv %}
+<div class="cv-page container">
+  <div class="cv-topline"><span>PROFILE / CURRICULUM VITAE</span><span>ARECIA ARCHIVE</span></div>
+  <header class="cv-header">
+    <div>
+      <p class="section-label">/ PROFILE</p>
+      <h1>{{ cv.name | escape }}<span class="accent">.</span></h1>
+      <p class="cv-headline">{{ cv.headline | escape }}</p>
+      <p class="cv-summary">{{ cv.summary | escape }}</p>
+    </div>
+    <div class="cv-actions">
+      <button type="button" data-print-cv>PDF로 저장 / 인쇄</button>
+      {% for link in cv.links %}<a href="{{ link.url | escape }}" target="_blank" rel="noopener noreferrer">{{ link.label | escape }}</a>{% endfor %}
+    </div>
+  </header>
+
+  <div class="cv-grid">
+    <nav class="cv-index" aria-label="CV 목차">
+      <span>CONTENTS</span>
+      <a href="#projects">프로젝트</a>
+      <a href="#awards">수상 내역</a>
+      {% if cv.experience.size > 0 %}<a href="#experience">경력</a>{% endif %}
+      {% if cv.education.size > 0 %}<a href="#education">학력</a>{% endif %}
+      <a href="{{ '/' | relative_url }}#posts">글 목록</a>
+    </nav>
+    <div class="cv-content">
+      <section class="cv-section" id="projects" aria-labelledby="projects-title">
+        <div class="cv-section-head"><span>01 / WORK</span><h2 id="projects-title">프로젝트</h2></div>
+        {% if cv.projects.size > 0 %}
+        <div class="cv-records">
+          {% for project in cv.projects %}
+          <article class="cv-record">
+            <div class="cv-record-meta"><span>{{ project.period | escape }}</span><span>{{ project.type | escape }}</span></div>
+            <div><h3>{{ project.title | escape }}</h3><p>{{ project.description | escape }}</p>{% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}</div>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}<p class="cv-empty">공개된 프로젝트가 없습니다.</p>{% endif %}
+      </section>
+
+      <section class="cv-section" id="awards" aria-labelledby="awards-title">
+        <div class="cv-section-head"><span>02 / RECOGNITION</span><h2 id="awards-title">수상 내역</h2></div>
+        {% if cv.awards.size > 0 %}
+        <div class="cv-records">
+          {% for award in cv.awards %}
+          <article class="cv-record">
+            <div class="cv-record-meta"><span>{{ award.year | escape }}</span><span>{{ award.organization | escape }}</span></div>
+            <div><h3>{{ award.title | escape }}</h3>{% if award.description %}<p>{{ award.description | escape }}</p>{% endif %}{% if award.url %}<a href="{{ award.url | escape }}" target="_blank" rel="noopener noreferrer">관련 링크</a>{% endif %}</div>
+          </article>
+          {% endfor %}
+        </div>
+        {% else %}<p class="cv-empty">현재 공개된 수상 내역이 없습니다.</p>{% endif %}
+      </section>
+
+      {% if cv.experience.size > 0 %}
+      <section class="cv-section" id="experience" aria-labelledby="experience-title">
+        <div class="cv-section-head"><span>03 / EXPERIENCE</span><h2 id="experience-title">경력</h2></div>
+        <div class="cv-records">{% for item in cv.experience %}<article class="cv-record"><div class="cv-record-meta"><span>{{ item.period | escape }}</span></div><div><h3>{{ item.role | escape }}</h3><p>{{ item.organization | escape }}{% if item.description %} · {{ item.description | escape }}{% endif %}</p></div></article>{% endfor %}</div>
+      </section>
+      {% endif %}
+
+      {% if cv.education.size > 0 %}
+      <section class="cv-section" id="education" aria-labelledby="education-title">
+        <div class="cv-section-head"><span>04 / EDUCATION</span><h2 id="education-title">학력</h2></div>
+        <div class="cv-records">{% for item in cv.education %}<article class="cv-record"><div class="cv-record-meta"><span>{{ item.period | escape }}</span></div><div><h3>{{ item.school | escape }}</h3><p>{{ item.detail | escape }}</p></div></article>{% endfor %}</div>
+      </section>
+      {% endif %}
+    </div>
+  </div>
+</div>

@@ -1,0 +1,20 @@
+---
+layout: default
+---
+<article class="post-page">
+  <a class="back-link" href="{{ '/' | relative_url }}#posts">글 목록으로 돌아가기</a>
+  <header class="post-header">
+    <div class="post-meta">
+      <span>{{ page.date | date: '%Y.%m.%d' }}</span>
+      {% if page.category %}<span class="meta-divider" aria-hidden="true"></span><span>{{ page.category }}</span>{% endif %}
+    </div>
+    <h1>{{ page.title | escape }}</h1>
+    {% if page.description %}<p class="post-deck">{{ page.description | escape }}</p>{% endif %}
+  </header>
+  <div class="post-body">{{ content }}</div>
+  <div class="post-end" aria-hidden="true">// END OF POST</div>
+  <nav class="post-bottom-nav" aria-label="글 탐색">
+    {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>이전 글</small><strong>{{ page.previous.title | escape }}</strong></a>{% endif %}
+    {% if page.next %}<a href="{{ page.next.url | relative_url }}"><small>다음 글</small><strong>{{ page.next.title | escape }}</strong></a>{% endif %}
+  </nav>
+</article>

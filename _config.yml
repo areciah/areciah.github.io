@@ -1,0 +1,10 @@
+title: arecia
+description: 프로젝트, 수상 내역, 글을 모아두는 개인 아카이브.
+lang: ko
+timezone: Asia/Seoul
+url: https://areciah.github.io
+baseurl: ""
+permalink: /:year/:month/:day/:title/
+markdown: kramdown
+exclude:
+  - README.md
