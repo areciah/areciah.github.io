@@ -15,14 +15,14 @@
   <body>
     <div class="intro" id="intro" aria-label="블로그 시작 화면">
       <div class="intro-inner">
-        <p class="intro-top">ARECIA / PERSONAL ARCHIVE <span>SYS.01</span></p>
+        <p class="intro-top">ARECIA / ARCHIVE <span>SYS.01</span></p>
         <div class="intro-center">
           <img class="intro-symbol" src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="80" height="80" aria-hidden="true">
           <p class="intro-command">$ open /archive<span class="cursor">_</span></p>
-          <h2>Opening<br><span>the archive.</span></h2>
-          <p class="intro-log">기록을 불러오고 있습니다.</p>
+          <h2>Archive<br><span>online.</span></h2>
+          <p class="intro-log">접속 중...</p>
         </div>
-        <div class="intro-bottom"><span>READ · QUESTION · DOCUMENT</span></div>
+        <div class="intro-bottom"><span>EXPLORE · BUILD · LOG</span></div>
         <div class="intro-progress" aria-hidden="true"></div>
       </div>
     </div>
@@ -36,7 +36,7 @@
         <nav class="site-nav" aria-label="주 메뉴">
           <a href="{{ '/' | relative_url }}">홈</a>
           <a href="{{ '/' | relative_url }}#work">프로젝트</a>
-          <a href="{{ '/' | relative_url }}#posts">글</a>
+          <a href="{{ '/' | relative_url }}#posts">기록</a>
           <a href="{{ '/cv/' | relative_url }}">CV</a>
         </nav>
       </header>
@@ -46,7 +46,7 @@
       <footer class="site-footer">
         <div>
           <span class="footer-mark"><img src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="29" height="29" aria-hidden="true">{{ site.title }}</span>
-          <p>작업과 생각을 모아두는 공간.</p>
+          <p>Work / Log</p>
         </div>
         <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
       </footer>

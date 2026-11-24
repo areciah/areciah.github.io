@@ -4,14 +4,14 @@ layout: default
 {% assign cv = site.data.cv %}
 <section class="hero container" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> PERSONAL ARCHIVE / ARECIA</p>
-    <h1 id="hero-title">작업을 남기고,<br><em>생각을 기록합니다.</em></h1>
-    <p class="hero-description">프로젝트와 수상 내역, 그리고 글을 한곳에 모았습니다. 만든 것과 배운 것을 함께 살펴보세요.</p>
+    <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> ARECIA / OPEN ARCHIVE</p>
+    <h1 id="hero-title">arecia의<br><em>작업 로그.</em></h1>
+    <p class="hero-description">프로젝트 · 수상 · 기록</p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#work">프로젝트와 수상</a>
-      <a class="button button-quiet" href="#posts">글 둘러보기</a>
+      <a class="button button-primary" href="#work">작업</a>
+      <a class="button button-quiet" href="#posts">글</a>
     </div>
-    <p class="hero-footnote">MAKE · DOCUMENT · SHARE</p>
+    <p class="hero-footnote">EXPLORE · BUILD · LOG</p>
   </div>
   <div class="archive-visual" aria-hidden="true">
     <span class="visual-label visual-label-top">ARCHIVE OBJECT / 001</span>
@@ -34,13 +34,13 @@ layout: default
 <nav class="section-index container" aria-label="블로그 바로가기">
   <a href="#work"><span class="index-number">01 / WORK</span><strong>프로젝트</strong><span class="index-detail">{{ cv.projects.size }}개의 작업</span></a>
   <a href="#awards"><span class="index-number">02 / RECOGNITION</span><strong>수상 내역</strong><span class="index-detail">{{ cv.awards.size }}개의 기록</span></a>
-  <a href="#posts"><span class="index-number">03 / WRITING</span><strong>글</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
+  <a href="#posts"><span class="index-number">03 / WRITING</span><strong>기록</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
 </nav>
 
 <section class="work-section container" id="work" aria-labelledby="work-title">
   <div class="section-heading">
-    <div><p class="section-label">/ SELECTED WORK</p><h2 id="work-title">프로젝트와 이력<span class="accent">.</span></h2></div>
-    <a class="section-more" href="{{ '/cv/' | relative_url }}">전체 CV 보기</a>
+    <div><p class="section-label">/ SELECTED WORK</p><h2 id="work-title">프로젝트<span class="accent">.</span></h2></div>
+    <a class="section-more" href="{{ '/cv/' | relative_url }}">CV 열기</a>
   </div>
   <div class="work-grid">
     <div class="work-list">
@@ -53,23 +53,23 @@ layout: default
         {% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}
       </article>
       {% endfor %}
-      {% else %}<div class="work-empty">공개된 프로젝트가 없습니다.</div>{% endif %}
+      {% else %}<div class="work-empty">아직 공개한 프로젝트가 없습니다.</div>{% endif %}
     </div>
     <aside class="awards-preview" id="awards" aria-labelledby="awards-preview-title">
       <p class="section-label">/ RECOGNITION</p>
       <h3 id="awards-preview-title">수상 내역</h3>
       {% if cv.awards.size > 0 %}
       <ul>{% for award in cv.awards limit:2 %}<li><span>{{ award.year | escape }}</span><strong>{{ award.title | escape }}</strong><small>{{ award.organization | escape }}</small></li>{% endfor %}</ul>
-      {% else %}<p class="awards-empty">현재 공개된 수상 내역이 없습니다.</p>{% endif %}
-      <a href="{{ '/cv/' | relative_url }}#awards">CV에서 보기</a>
+      {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
+      <a href="{{ '/cv/' | relative_url }}#awards">수상 내역 전체 보기</a>
     </aside>
   </div>
 </section>
 
 <section class="posts-section container" id="posts" aria-labelledby="posts-title">
   <div class="section-heading">
-    <div><p class="section-label">/ THE ARCHIVE</p><h2 id="posts-title">최근 기록<span class="accent">.</span></h2></div>
-    <span class="post-count">{{ site.posts.size }} POSTS</span>
+    <div><p class="section-label">/ FIELD NOTES</p><h2 id="posts-title">최근 기록<span class="accent">.</span></h2></div>
+    <span class="post-count">{{ site.posts.size }} LOGS</span>
   </div>
   {% if site.posts.size > 0 %}
   <div class="post-list">
@@ -81,18 +81,18 @@ layout: default
       </div>
       <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
       {% if post.description %}<p>{{ post.description | escape }}</p>{% endif %}
-      <span class="post-row-foot">READ ENTRY <span aria-hidden="true">+</span></span>
+      <span class="post-row-foot">OPEN LOG <span aria-hidden="true">+</span></span>
     </article>
     {% endfor %}
   </div>
   {% else %}
-  <div class="empty-state">첫 번째 글을 기다리고 있습니다.</div>
+  <div class="empty-state">아직 공개한 글이 없습니다.</div>
   {% endif %}
 </section>
 
 <section class="about-section" id="about" aria-labelledby="about-title">
   <div class="container about-grid">
-    <div><p class="section-label">/ ABOUT THIS SPACE</p><h2 id="about-title">생각은 기록에서<br>다시 시작됩니다<span class="accent">.</span></h2></div>
-    <div class="about-copy"><p>빠르게 흘러가는 것들 사이에서 잠시 멈춰 생각을 붙잡아 둡니다. 이곳에 쌓인 글이 누군가에게도 작은 실마리가 되기를 바랍니다.</p><span class="about-prompt">arecia@archive:~$ keep_thinking<span class="cursor">_</span></span></div>
+    <div><p class="section-label">/ ABOUT THIS SPACE</p><h2 id="about-title">과정까지<br>기록합니다<span class="accent">.</span></h2></div>
+    <div class="about-copy"><p>완성한 것, 막힌 지점, 다음에 해볼 것.</p><span class="about-prompt">arecia@archive:~$ inspect --notes<span class="cursor">_</span></span></div>
   </div>
 </section>

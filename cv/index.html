@@ -1,7 +1,7 @@
 ---
 layout: default
 title: CV
-description: 프로젝트, 수상 내역, 경력과 학력을 정리하는 CV.
+description: arecia의 프로젝트와 수상 내역.
 ---
 {% assign cv = site.data.cv %}
 <div class="cv-page container">
@@ -26,7 +26,7 @@ description: 프로젝트, 수상 내역, 경력과 학력을 정리하는 CV.
       <a href="#awards">수상 내역</a>
       {% if cv.experience.size > 0 %}<a href="#experience">경력</a>{% endif %}
       {% if cv.education.size > 0 %}<a href="#education">학력</a>{% endif %}
-      <a href="{{ '/' | relative_url }}#posts">글 목록</a>
+      <a href="{{ '/' | relative_url }}#posts">글</a>
     </nav>
     <div class="cv-content">
       <section class="cv-section" id="projects" aria-labelledby="projects-title">
@@ -40,7 +40,7 @@ description: 프로젝트, 수상 내역, 경력과 학력을 정리하는 CV.
           </article>
           {% endfor %}
         </div>
-        {% else %}<p class="cv-empty">공개된 프로젝트가 없습니다.</p>{% endif %}
+        {% else %}<p class="cv-empty">아직 공개한 프로젝트가 없습니다.</p>{% endif %}
       </section>
 
       <section class="cv-section" id="awards" aria-labelledby="awards-title">
@@ -54,7 +54,7 @@ description: 프로젝트, 수상 내역, 경력과 학력을 정리하는 CV.
           </article>
           {% endfor %}
         </div>
-        {% else %}<p class="cv-empty">현재 공개된 수상 내역이 없습니다.</p>{% endif %}
+        {% else %}<p class="cv-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
       </section>
 
       {% if cv.experience.size > 0 %}

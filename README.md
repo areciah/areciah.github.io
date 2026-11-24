@@ -58,4 +58,4 @@ Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행
 
 처음 방문하면 터미널 인트로가 한 번 표시됩니다. 인트로를 다시 확인하려면 새 브라우저 세션을 열거나 해당 사이트의 세션 저장소를 비우세요.
 
-첫 화면의 `assets/hero-archive.gif`는 회전과 형태 변화를 담은 애니메이션입니다. 움직임 줄이기 설정에서는 `assets/hero-archive.png`가 대신 표시됩니다.
+첫 화면에는 화면 크기와 픽셀 밀도에 따라 `assets/hero-archive.gif`, `assets/hero540.gif`, `assets/hero1080.gif` 중 하나가 표시됩니다. 이미지는 CSS로 천천히 회전합니다. 움직임 줄이기 설정에서는 `assets/hero-archive.png`가 대신 표시됩니다.
