@@ -54,7 +54,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .visual-label-bottom { right: 25px; bottom: 23px; }
 .visual-orbit { position: absolute; top: 50%; left: 50%; width: 82%; aspect-ratio: 1; border: 1px solid #ffb8c02a; border-radius: 50%; transform: translate(-50%, -50%) rotate(-28deg) scaleY(.73); }
 .visual-orbit-two { width: 110%; border-color: #ffb8c015; transform: translate(-50%, -50%) rotate(35deg) scaleY(.68); }
-.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: 100%; height: 100%; max-width: none; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 24px 24px #09050b88); }
+.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: 100%; height: 100%; max-width: none; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 24px 24px #09050b88); animation: archive-spin 60s linear infinite; }
 .visual-cross { position: absolute; color: var(--accent); font: 300 1.6rem var(--mono); }
 .visual-cross-one { top: 22%; right: 17%; }
 .visual-cross-two { bottom: 18%; left: 15%; font-size: 1rem; }
@@ -185,6 +185,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .intro-bottom { color: var(--soft); font-size: .72rem; letter-spacing: .07em; }
 .intro-progress { position: absolute; bottom: 0; left: 0; width: 0; height: 2px; background: var(--accent); box-shadow: 0 0 14px #ff74848c; animation: load 4.2s linear forwards; }
 @keyframes blink { 50% { opacity: 0; } }
+@keyframes archive-spin { to { transform: translate(-50%, -50%) rotate(360deg); } }
 @keyframes load { to { width: 100%; } }
 @keyframes intro-fallback { to { visibility: hidden; } }
 
