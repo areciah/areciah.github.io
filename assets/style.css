@@ -54,7 +54,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .visual-label-bottom { right: 25px; bottom: 23px; }
 .visual-orbit { position: absolute; top: 50%; left: 50%; width: 82%; aspect-ratio: 1; border: 1px solid #ffb8c02a; border-radius: 50%; transform: translate(-50%, -50%) rotate(-28deg) scaleY(.73); }
 .visual-orbit-two { width: 110%; border-color: #ffb8c015; transform: translate(-50%, -50%) rotate(35deg) scaleY(.68); }
-.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: min(100%, 420px); height: auto; aspect-ratio: 1; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 24px 24px #09050b88); animation: archive-spin 60s linear infinite; }
+.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: 100%; height: 100%; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 24px 24px #09050b88); animation: archive-spin 60s linear infinite; }
 .visual-cross { position: absolute; color: var(--accent); font: 300 1.6rem var(--mono); }
 .visual-cross-one { top: 22%; right: 17%; }
 .visual-cross-two { bottom: 18%; left: 15%; font-size: 1rem; }
