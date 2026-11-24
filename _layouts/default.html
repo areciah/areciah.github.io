@@ -5,8 +5,10 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta name="theme-color" content="#100e13">
     <meta name="description" content="{{ page.description | default: site.description | escape }}">
+    <meta property="og:image" content="{{ site.url }}{{ '/assets/archive-icon.png' | relative_url }}">
     <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
-    <link rel="icon" href="{{ '/assets/favicon.svg' | relative_url }}?v=slashes-1" type="image/svg+xml">
+    <link rel="icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1" type="image/png">
+    <link rel="apple-touch-icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1">
     <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
     <script>try{if(!sessionStorage.getItem('arecia-intro-archive-v5'))document.documentElement.classList.add('intro-pending')}catch(e){document.documentElement.classList.add('intro-pending')}</script>
   </head>
@@ -15,7 +17,7 @@
       <div class="intro-inner">
         <p class="intro-top">ARECIA / PERSONAL ARCHIVE <span>SYS.01</span></p>
         <div class="intro-center">
-          <img class="intro-symbol" src="{{ '/assets/favicon.svg' | relative_url }}?v=slashes-1" alt="" width="64" height="64" aria-hidden="true">
+          <img class="intro-symbol" src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="80" height="80" aria-hidden="true">
           <p class="intro-command">$ open /archive<span class="cursor">_</span></p>
           <h2>Opening<br><span>the archive.</span></h2>
           <p class="intro-log">기록을 불러오고 있습니다.</p>
@@ -28,8 +30,8 @@
       <a class="skip-link" href="#content">본문으로 이동</a>
       <header class="site-header">
         <a class="brand" href="{{ '/' | relative_url }}" aria-label="{{ site.title }} 홈">
-          <img class="brand-mark" src="{{ '/assets/favicon.svg' | relative_url }}?v=slashes-1" alt="" width="31" height="31" aria-hidden="true">
-          <span class="brand-name">{{ site.title }}<span class="accent">/</span></span>
+          <img class="brand-mark" src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="38" height="38" aria-hidden="true">
+          <span class="brand-name">{{ site.title }}</span>
         </a>
         <nav class="site-nav" aria-label="주 메뉴">
           <a href="{{ '/' | relative_url }}">홈</a>
@@ -43,7 +45,7 @@
 
       <footer class="site-footer">
         <div>
-          <span class="footer-mark">arecia<span class="accent">/</span></span>
+          <span class="footer-mark"><img src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="29" height="29" aria-hidden="true">{{ site.title }}</span>
           <p>작업과 생각을 모아두는 공간.</p>
         </div>
         <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
