@@ -9,7 +9,7 @@
     <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
     <link rel="icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1" type="image/png">
     <link rel="apple-touch-icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1">
-    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v=status-1">
     <script>try{if(!sessionStorage.getItem('arecia-intro-archive-v5'))document.documentElement.classList.add('intro-pending')}catch(e){document.documentElement.classList.add('intro-pending')}</script>
   </head>
   <body>
@@ -22,7 +22,7 @@
           <h2>Archive<br><span>online.</span></h2>
           <p class="intro-log">접속 중...</p>
         </div>
-        <div class="intro-bottom"><span>EXPLORE · BUILD · LOG</span></div>
+        <div class="intro-bottom"><span>EXPLORE · ANALYZE · LOG</span></div>
         <div class="intro-progress" aria-hidden="true"></div>
       </div>
     </div>
@@ -46,11 +46,11 @@
       <footer class="site-footer">
         <div>
           <span class="footer-mark"><img src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="29" height="29" aria-hidden="true">{{ site.title }}</span>
-          <p>Work / Log</p>
+          <p>Archive / in progress</p>
         </div>
         <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
       </footer>
     </div>
-    <script src="{{ '/assets/site.js' | relative_url }}" defer></script>
+    <script src="{{ '/assets/site.js' | relative_url }}?v=status-1" defer></script>
   </body>
 </html>
