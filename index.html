@@ -17,7 +17,10 @@ layout: default
     <span class="visual-label visual-label-top">ARCHIVE OBJECT / 001</span>
     <div class="visual-orbit visual-orbit-one"></div>
     <div class="visual-orbit visual-orbit-two"></div>
-    <img class="archive-image" src="{{ '/assets/hero-archive.png' | relative_url }}" alt="" width="1254" height="1254" fetchpriority="high">
+    <picture>
+      <source media="(prefers-reduced-motion: reduce)" srcset="{{ '/assets/hero-archive.png' | relative_url }}" type="image/png">
+      <img class="archive-image" src="{{ '/assets/hero-archive.gif' | relative_url }}" alt="" width="420" height="420" fetchpriority="high">
+    </picture>
     <span class="visual-cross visual-cross-one">+</span>
     <span class="visual-cross visual-cross-two">+</span>
     <span class="visual-label visual-label-bottom">TRACE / INDEX / MEMORY</span>

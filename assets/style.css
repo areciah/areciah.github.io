@@ -54,14 +54,10 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .visual-label-bottom { right: 25px; bottom: 23px; }
 .visual-orbit { position: absolute; top: 50%; left: 50%; width: 82%; aspect-ratio: 1; border: 1px solid #ffb8c02a; border-radius: 50%; transform: translate(-50%, -50%) rotate(-28deg) scaleY(.73); }
 .visual-orbit-two { width: 110%; border-color: #ffb8c015; transform: translate(-50%, -50%) rotate(35deg) scaleY(.68); }
-.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: 100%; height: 100%; max-width: none; object-fit: contain; filter: drop-shadow(0 24px 24px #09050b88); will-change: transform; animation: archive-spin 14s linear infinite; }
+.archive-image { position: absolute; z-index: 2; top: 50%; left: 50%; width: 100%; height: 100%; max-width: none; object-fit: contain; transform: translate(-50%, -50%); filter: drop-shadow(0 24px 24px #09050b88); }
 .visual-cross { position: absolute; color: var(--accent); font: 300 1.6rem var(--mono); }
 .visual-cross-one { top: 22%; right: 17%; }
 .visual-cross-two { bottom: 18%; left: 15%; font-size: 1rem; }
-@keyframes archive-spin {
-  from { transform: translate(-50%, -50%) rotate(0deg); }
-  to { transform: translate(-50%, -50%) rotate(360deg); }
-}
 
 .section-index { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border-top: 1px solid var(--line); border-bottom: 1px solid var(--line); }
 .section-index a { display: grid; gap: 9px; min-width: 0; padding: 25px 24px 28px; border-right: 1px solid var(--line); }
@@ -242,7 +238,6 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 @media (prefers-reduced-motion: reduce) {
   :root { scroll-behavior: auto; }
   *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
-  .archive-image { animation: none !important; transform: translate(-50%, -50%); }
   .intro-pending .intro { animation-delay: .5s; }
 }
 @media print {

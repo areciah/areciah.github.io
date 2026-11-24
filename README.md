@@ -57,3 +57,5 @@ education:
 Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행하세요. GitHub Pages에 올리면 별도 빌드 설정 없이 게시됩니다.
 
 처음 방문하면 터미널 인트로가 한 번 표시됩니다. 인트로를 다시 확인하려면 새 브라우저 세션을 열거나 해당 사이트의 세션 저장소를 비우세요.
+
+첫 화면의 `assets/hero-archive.gif`는 회전과 형태 변화를 담은 애니메이션입니다. 움직임 줄이기 설정에서는 `assets/hero-archive.png`가 대신 표시됩니다.
