@@ -293,3 +293,5 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .highlight :is(.nf,.fm,.nc,.nb,.bp) { color: #adcff2; }
 .highlight :is(.na,.nt,.nv,.vc,.vg,.vi) { color: #f6b9c7; }
 .highlight :is(.c,.c1,.cm,.cp,.cs,.ch) { color: #b2a3ad; font-style: italic; }
+
+.post-tags, .post-row .post-tags { display: flex; flex-wrap: wrap; gap: .3em .8em; margin: .65em 0 0; color: var(--accent-soft); font-size: .84rem; }

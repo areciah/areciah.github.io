@@ -19,6 +19,15 @@ description: arecia의 글을 카테고리별로 읽어보세요.
         {% if uncategorized.size > 0 %}<option data-uncategorized>미분류</option>{% endif %}
       </select>
     </label>
+    {% if site.tags.size > 0 %}
+    <label>태그
+      <select id="archive-tag">
+        <option value="">전체</option>
+        {% assign tags = site.tags | sort %}
+        {% for tag in tags %}<option value="{{ tag[0] | escape }}">{{ tag[0] | escape }}</option>{% endfor %}
+      </select>
+    </label>
+    {% endif %}
     <label>정렬
       <select id="archive-order">
         <option value="newest">최신순</option>

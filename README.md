@@ -85,7 +85,7 @@ Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행
 
 ## Notion 자동 발행
 
-1. Notion 데이터베이스에 제목 속성과 **상태**(상태 타입, 옵션 이름 `발행`)를 만드세요. 선택 속성은 **발행일**(날짜, 기본값은 페이지 생성일), **카테고리**(선택 또는 다중 선택), **요약**(텍스트)입니다.
+1. Notion 데이터베이스에 제목 속성과 **상태**(상태 타입, 옵션 이름 `발행`)를 만드세요. 선택 속성은 **발행일**(날짜, 기본값은 페이지 생성일), **카테고리**(글의 분야, 다중 선택), **태그**(세부 키워드, 다중 선택), **요약**(텍스트)입니다.
 2. Notion에서 읽기 권한을 가진 내부 연결을 만들고 데이터베이스의 연결 메뉴에서 추가하세요. 데이터베이스 설정에서 **데이터 소스 ID**를 복사하세요.
 3. GitHub 저장소의 **Settings → Secrets and variables → Actions**에서 읽기 토큰은 Secrets에 `NOTION_TOKEN`, 데이터 소스 ID는 Variables에 `NOTION_DATA_SOURCE_ID`로 등록하세요.
 4. 변경 사항을 기본 브랜치 main에 푸시하고 **Settings → Pages → Source → GitHub Actions**를 선택하세요. **Actions → Publish Notion and Jekyll → Run workflow**로 첫 배포를 확인할 수 있습니다.

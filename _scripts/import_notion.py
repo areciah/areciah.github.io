@@ -62,6 +62,7 @@ def export(page):
     metadata = {"layout": "post", "title": plain(title), "date": str(day),
                 "description": plain(props.get("요약", {}).get("rich_text", [])),
                 "categories": [c["name"] for c in choices if c],
+                "tags": [tag["name"] for tag in props.get("태그", {}).get("multi_select", [])],
                 "permalink": destination, "render_with_liquid": False}
     content = api(f"pages/{page_id}/markdown?markdown_version=v2")
     if content.get("truncated"):

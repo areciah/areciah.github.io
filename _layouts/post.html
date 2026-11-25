@@ -6,10 +6,11 @@ layout: default
   <header class="post-header">
     <div class="post-meta">
       <span>{{ page.date | date: '%Y.%m.%d' }}</span>
-      {% if page.category %}<span class="meta-divider" aria-hidden="true"></span><span>{{ page.category }}</span>{% endif %}
+      {% if page.categories.size > 0 %}<span class="meta-divider" aria-hidden="true"></span><span>{{ page.categories | join: ' · ' | escape }}</span>{% endif %}
     </div>
     <h1>{{ page.title | escape }}</h1>
     {% if page.description %}<p class="post-deck">{{ page.description | escape }}</p>{% endif %}
+    {% include post-tags.html tags=page.tags %}
   </header>
   <div class="post-body">{{ content }}</div>
   <div class="post-end" aria-hidden="true">// END OF POST</div>

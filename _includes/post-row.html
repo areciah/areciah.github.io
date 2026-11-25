@@ -1,8 +1,9 @@
-<article class="post-row" data-categories="{{ post.categories | jsonify | escape }}">
+<article class="post-row" data-tags="{{ post.tags | jsonify | escape }}" data-categories="{{ post.categories | jsonify | escape }}">
   <div class="post-row-top">
     {% if post.categories.size > 0 %}<span class="post-category">{{ post.categories | join: ' · ' | escape }}</span>{% endif %}
     <time datetime="{{ post.date | date: '%Y-%m-%d' }}">{{ post.date | date: '%Y.%m.%d' }}</time>
   </div>
   <h3><a href="{{ post.url | relative_url }}">{{ post.title | escape }}</a></h3>
   {% if post.description %}<p>{{ post.description | escape }}</p>{% endif %}
+  {% include post-tags.html tags=post.tags %}
 </article>

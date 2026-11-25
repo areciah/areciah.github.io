@@ -1,0 +1,3 @@
+{% if include.tags.size > 0 %}
+<p class="post-tags">{% for tag in include.tags %}<span>#{{ tag | escape }}</span>{% endfor %}</p>
+{% endif %}
