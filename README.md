@@ -72,3 +72,12 @@ Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행
 처음 방문하면 터미널 인트로가 한 번 표시됩니다. 인트로를 다시 확인하려면 새 브라우저 세션을 열거나 해당 사이트의 세션 저장소를 비우세요.
 
 첫 화면에는 화면 크기와 픽셀 밀도에 따라 `assets/hero-archive.gif`, `assets/hero540.gif`, `assets/hero1080.gif` 중 하나가 표시됩니다. 이미지는 CSS로 천천히 회전합니다. 움직임 줄이기 설정에서는 `assets/hero-archive.png`가 대신 표시됩니다.
+
+## Notion 자동 발행
+
+1. Notion 데이터베이스에 제목 속성과 **상태**(상태 타입, 옵션 이름 `발행`)를 만드세요. 선택 속성은 **발행일**(날짜, 기본값은 페이지 생성일), **카테고리**(선택 또는 다중 선택), **요약**(텍스트)입니다.
+2. Notion에서 읽기 권한을 가진 내부 연결을 만들고 데이터베이스의 연결 메뉴에서 추가하세요. 데이터베이스 설정에서 **데이터 소스 ID**를 복사하세요.
+3. GitHub 저장소의 **Settings → Secrets and variables → Actions**에서 읽기 토큰은 Secrets에 `NOTION_TOKEN`, 데이터 소스 ID는 Variables에 `NOTION_DATA_SOURCE_ID`로 등록하세요.
+4. 변경 사항을 기본 브랜치 main에 푸시하고 **Settings → Pages → Source → GitHub Actions**를 선택하세요. **Actions → Publish Notion and Jekyll → Run workflow**로 첫 배포를 확인할 수 있습니다.
+
+이후 Notion에서 상태를 **발행**으로 바꾸면 15분 주기의 다음 실행에서 블로그가 빌드됩니다. GitHub 실행 대기 시간만큼 늦어질 수 있습니다. 발행된 글의 수정도 반영되고, 상태를 초안으로 되돌리면 다음 성공한 배포에서 내려갑니다. 페이지 ID로 주소를 정하므로 제목을 바꿔도 링크는 유지됩니다. 매 실행은 새 체크아웃에서 시작하며, 기존 Markdown 글도 함께 빌드합니다.
