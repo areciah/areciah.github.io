@@ -56,16 +56,25 @@ def export(page):
     category = props.get("카테고리", {})
     choices = category.get("multi_select", []) or [category.get("select")]
     page_id = UUID(page["id"]).hex
+    address = plain(props.get("주소", {}).get("rich_text", [])) or plain(title)
+    slug = re.sub(r"[\W_]+", "-", address.casefold()).strip("-")[:60].rstrip("-") or "note"
+    destination = f"/posts/{slug}-{page_id[:12]}/"
     metadata = {"layout": "post", "title": plain(title), "date": str(day),
                 "description": plain(props.get("요약", {}).get("rich_text", [])),
                 "categories": [c["name"] for c in choices if c],
-                "permalink": f"/posts/{page_id}/", "render_with_liquid": False}
+                "permalink": destination, "render_with_liquid": False}
     content = api(f"pages/{page_id}/markdown?markdown_version=v2")
     if content.get("truncated"):
         raise ValueError(f"Incomplete Notion page: {page_id}")
     body = re.sub(r"""https://[^\s<>"')]+""", store_attachment, content["markdown"])
     header = "\n".join(f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in metadata.items())
     Path(f"_posts/{day}-notion-{page_id}.md").write_text(f"---\n{header}\n---\n\n{body}\n", encoding="utf-8")
+
+    redirects = Path("redirects")
+    redirects.mkdir(exist_ok=True)
+    (redirects / f"notion-{page_id}.html").write_text(
+        f"---\nlayout: post-redirect\npermalink: /posts/{page_id}/\ndestination: {destination}\n---\n",
+        encoding="utf-8")
 
 
 def main():

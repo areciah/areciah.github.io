@@ -22,6 +22,8 @@ category: 기록
 
 `_posts/2026-11-25-first-page.md`는 디자인을 확인할 수 있도록 넣은 시작 글입니다. 원하는 내용으로 수정하거나 삭제해도 됩니다. 블로그 제목과 소개 문구는 `_config.yml`에서 바꿀 수 있습니다.
 
+Markdown 글 주소는 `/posts/파일이름/`입니다(날짜 접두사 제외). 글 상단에 `slug: request-id-logs`처럼 고정 이름을 지정할 수도 있습니다.
+
 ## 프로젝트 추가하기
 
 프로젝트마다 `_projects/my-project.md`처럼 파일을 하나 만드세요. 파일 이름은 상세 페이지 주소(`/projects/my-project/`)에 쓰입니다.
@@ -88,4 +90,4 @@ Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행
 3. GitHub 저장소의 **Settings → Secrets and variables → Actions**에서 읽기 토큰은 Secrets에 `NOTION_TOKEN`, 데이터 소스 ID는 Variables에 `NOTION_DATA_SOURCE_ID`로 등록하세요.
 4. 변경 사항을 기본 브랜치 main에 푸시하고 **Settings → Pages → Source → GitHub Actions**를 선택하세요. **Actions → Publish Notion and Jekyll → Run workflow**로 첫 배포를 확인할 수 있습니다.
 
-이후 Notion에서 상태를 **발행**으로 바꾸면 15분 주기의 다음 실행에서 블로그가 빌드됩니다. GitHub 실행 대기 시간만큼 늦어질 수 있습니다. 발행된 글의 수정도 반영되고, 상태를 초안으로 되돌리면 다음 성공한 배포에서 내려갑니다. 페이지 ID로 주소를 정하므로 제목을 바꿔도 링크는 유지됩니다. 매 실행은 새 체크아웃에서 시작하며, 기존 Markdown 글도 함께 빌드합니다.
+이후 Notion에서 상태를 **발행**으로 바꾸면 15분 주기의 다음 실행에서 블로그가 빌드됩니다. GitHub 실행 대기 시간만큼 늦어질 수 있습니다. 발행된 글의 수정도 반영되고, 상태를 초안으로 되돌리면 다음 성공한 배포에서 내려갑니다. Notion 글 주소는 `/posts/제목-짧은ID/` 형식입니다. 제목을 고쳐도 주소를 유지하려면 첫 발행 전에 텍스트 속성 `주소`에 고정 이름을 넣으세요. 기존 페이지 ID 주소도 새 주소로 연결됩니다. 매 실행은 새 체크아웃에서 시작하며, 기존 Markdown 글도 함께 빌드합니다.
