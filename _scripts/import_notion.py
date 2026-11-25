@@ -79,14 +79,39 @@ def export(page):
         encoding="utf-8")
 
 
+def resolve_source(configured_id):
+    try:
+        object_id = UUID(configured_id.strip()).hex
+    except ValueError:
+        raise SystemExit("DATABASE_ID에는 Notion 데이터베이스 또는 데이터 소스의 UUID를 입력하세요.") from None
+
+    try:
+        database = api(f"databases/{object_id}")
+    except HTTPError as error:
+        if error.code != 404:
+            raise
+    else:
+        sources = database["data_sources"]
+        if len(sources) != 1:
+            raise SystemExit("DATABASE_ID에 발행할 데이터 소스의 ID를 지정하세요.")
+        return sources[0]["id"]
+
+    try:
+        return api(f"data_sources/{object_id}")["id"]
+    except HTTPError as error:
+        if error.code != 404:
+            raise
+        raise SystemExit(
+            "Notion 404: DATABASE_ID와 데이터베이스 접근 권한을 확인하세요. "
+            "뷰 ID(?v=)가 아닌 데이터베이스 ID를 입력하고, 데이터베이스의 연결 메뉴에 "
+            "NOTION_TOKEN을 발급한 통합을 추가하세요."
+        ) from None
+
+
 def main():
     if not os.getenv("NOTION_TOKEN") or not os.getenv("DATABASE_ID"):
         raise SystemExit("Set the NOTION_TOKEN and DATABASE_ID repository secrets.")
-    database_id = UUID(os.environ["DATABASE_ID"].strip()).hex
-    sources = api(f"databases/{database_id}")["data_sources"]
-    if len(sources) != 1:
-        raise SystemExit("The blog database must contain exactly one data source.")
-    source = sources[0]["id"]
+    source = resolve_source(os.environ["DATABASE_ID"])
     query = {"filter": {"property": "상태", "status": {"equals": "발행"}}}
     count = 0
     while True:
