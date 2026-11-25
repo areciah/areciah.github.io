@@ -24,7 +24,7 @@ jobs:
       - name: Import published Notion posts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
-          NOTION_DATA_SOURCE_ID: ${{ vars.NOTION_DATA_SOURCE_ID }}
+          DATABASE_ID: ${{ secrets.DATABASE_ID }}
         run: python3 _scripts/import_notion.py
       - uses: actions/configure-pages@v5
       - uses: actions/jekyll-build-pages@v1

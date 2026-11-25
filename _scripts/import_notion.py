@@ -80,9 +80,13 @@ def export(page):
 
 
 def main():
-    if not os.getenv("NOTION_TOKEN") or not os.getenv("NOTION_DATA_SOURCE_ID"):
-        raise SystemExit("Set the NOTION_TOKEN secret and NOTION_DATA_SOURCE_ID variable.")
-    source = UUID(os.environ["NOTION_DATA_SOURCE_ID"]).hex
+    if not os.getenv("NOTION_TOKEN") or not os.getenv("DATABASE_ID"):
+        raise SystemExit("Set the NOTION_TOKEN and DATABASE_ID repository secrets.")
+    database_id = UUID(os.environ["DATABASE_ID"].strip()).hex
+    sources = api(f"databases/{database_id}")["data_sources"]
+    if len(sources) != 1:
+        raise SystemExit("The blog database must contain exactly one data source.")
+    source = sources[0]["id"]
     query = {"filter": {"property": "상태", "status": {"equals": "발행"}}}
     count = 0
     while True:

@@ -86,8 +86,8 @@ Jekyll이 설치되어 있다면 저장소 루트에서 `jekyll serve`를 실행
 ## Notion 자동 발행
 
 1. Notion 데이터베이스에 제목 속성과 **상태**(상태 타입, 옵션 이름 `발행`)를 만드세요. 선택 속성은 **발행일**(날짜, 기본값은 페이지 생성일), **카테고리**(글의 분야, 다중 선택), **태그**(세부 키워드, 다중 선택), **요약**(텍스트)입니다.
-2. Notion에서 읽기 권한을 가진 내부 연결을 만들고 데이터베이스의 연결 메뉴에서 추가하세요. 데이터베이스 설정에서 **데이터 소스 ID**를 복사하세요.
-3. GitHub 저장소의 **Settings → Secrets and variables → Actions**에서 읽기 토큰은 Secrets에 `NOTION_TOKEN`, 데이터 소스 ID는 Variables에 `NOTION_DATA_SOURCE_ID`로 등록하세요.
+2. Notion에서 읽기 권한을 가진 내부 연결을 만들고 데이터베이스의 연결 메뉴에서 추가하세요. 데이터베이스 링크에서 경로 끝의 **데이터베이스 ID**를 복사하세요. 링크의 `?v=` 뒤에는 뷰 ID가 들어갑니다.
+3. GitHub 저장소의 **Settings → Secrets and variables → Actions**에서 두 값을 Repository secrets에 등록하세요. `NOTION_TOKEN`은 Notion 읽기 토큰이고, `DATABASE_ID`는 단일 데이터 소스를 가진 블로그 데이터베이스의 ID입니다. GitHub Pages 배포에는 Actions 기본 토큰을 사용합니다.
 4. 변경 사항을 기본 브랜치 main에 푸시하고 **Settings → Pages → Source → GitHub Actions**를 선택하세요. **Actions → Publish Notion and Jekyll → Run workflow**로 첫 배포를 확인할 수 있습니다.
 
 이후 Notion에서 상태를 **발행**으로 바꾸면 15분 주기의 다음 실행에서 블로그가 빌드됩니다. GitHub 실행 대기 시간만큼 늦어질 수 있습니다. 발행된 글의 수정도 반영되고, 상태를 초안으로 되돌리면 다음 성공한 배포에서 내려갑니다. Notion 글 주소는 `/posts/제목-짧은ID/` 형식입니다. 제목을 고쳐도 주소를 유지하려면 첫 발행 전에 텍스트 속성 `주소`에 고정 이름을 넣으세요. 기존 페이지 ID 주소도 새 주소로 연결됩니다. 매 실행은 새 체크아웃에서 시작하며, 기존 Markdown 글도 함께 빌드합니다.
