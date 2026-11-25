@@ -7,5 +7,12 @@ awards:
     year: "2026"
     organization: "가상 아카이브 해커톤"
     description: "로그 뷰어 Trace Note를 출품한 가상의 수상 사례입니다."
+    role: "로그 분석 기능 개발과 데모 발표"
+activities:
+  - title: "로그 분석 스터디 (예시)"
+    period: "2026.03–06"
+    organization: "가상 개발 스터디"
+    description: "매주 로그 사례 하나를 골라 함께 분석하는 모임."
+    role: "실습 자료 작성과 세션 진행"
 experience: []
 education: []

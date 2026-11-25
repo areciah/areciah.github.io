@@ -31,6 +31,7 @@ category: 기록
 title: 프로젝트 이름
 topic: 주제
 description: 프로젝트를 한 문장으로 소개하세요.
+role: 직접 맡은 기능이나 업무 (선택)
 ---
 
 ## 작업 과정
@@ -43,7 +44,7 @@ description: 프로젝트를 한 문장으로 소개하세요.
 
 ## 소개 페이지 채우기
 
-수상, 경력, 학력은 `_data/cv.yml`에서 관리합니다.
+수상, 외부활동, 경력, 학력은 `_data/cv.yml`에서 관리합니다.
 
 ```yaml
 awards:
@@ -51,7 +52,14 @@ awards:
     title: 수상 이름
     organization: 주최 기관
     description: 짧은 설명
+    role: 직접 맡은 업무 (선택)
     url: https://example.com
+activities:
+  - title: 활동 이름
+    period: "2026.03–06"
+    organization: 활동 기관 또는 모임
+    description: 활동 소개
+    role: 직접 맡은 업무 (선택)
 experience:
   - period: "2025–현재"
     role: 역할

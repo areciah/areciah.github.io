@@ -1,6 +1,7 @@
 ---
 title: "Trace Note (예시)"
 topic: "개발 도구 · 로그 분석"
+role: "로그 파서 구현과 요청 ID 필터 설계"
 description: "여러 파일에 흩어진 로그를 시간순으로 모아 읽는 뷰어."
 ---
 

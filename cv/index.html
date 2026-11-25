@@ -24,6 +24,7 @@ description: arecia의 작업과 기록.
       <span>INDEX</span>
       <a href="#projects">프로젝트</a>
       <a href="#awards">수상 내역</a>
+      {% if cv.activities.size > 0 %}<a href="#activities">외부활동</a>{% endif %}
       {% if cv.experience.size > 0 %}<a href="#experience">경력</a>{% endif %}
       {% if cv.education.size > 0 %}<a href="#education">학력</a>{% endif %}
       <a href="{{ '/posts/' | relative_url }}">글</a>
@@ -47,12 +48,33 @@ description: arecia의 작업과 기록.
           {% for award in cv.awards %}
           <article class="cv-record">
             <div class="cv-record-meta"><span>{{ award.year | escape }}</span><span>{{ award.organization | escape }}</span></div>
-            <div><h3>{{ award.title | escape }}</h3>{% if award.description %}<p>{{ award.description | escape }}</p>{% endif %}{% if award.url %}<a href="{{ award.url | escape }}" target="_blank" rel="noopener noreferrer">관련 링크</a>{% endif %}</div>
+            <div><h3>{{ award.title | escape }}</h3>{% if award.description %}<p>{{ award.description | escape }}</p>{% endif %}{% if award.role and award.role != empty %}<p><strong>맡은 역할</strong> · {{ award.role | escape }}</p>{% endif %}{% if award.url %}<a href="{{ award.url | escape }}" target="_blank" rel="noopener noreferrer">관련 링크</a>{% endif %}</div>
           </article>
           {% endfor %}
         </div>
         {% else %}<p class="cv-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
       </section>
+
+      {% if cv.activities.size > 0 %}
+      <section class="cv-section" id="activities" aria-labelledby="activities-title">
+        <div class="cv-section-head"><span>ACTIVITIES</span><h2 id="activities-title">외부활동</h2></div>
+        <div class="cv-records">
+          {% for activity in cv.activities %}
+          <article class="cv-record">
+            <div class="cv-record-meta">
+              <span>{{ activity.period | escape }}</span>
+              <span>{{ activity.organization | escape }}</span>
+            </div>
+            <div>
+              <h3>{{ activity.title | escape }}</h3>
+              {% if activity.description %}<p>{{ activity.description | escape }}</p>{% endif %}
+              {% if activity.role and activity.role != empty %}<p><strong>맡은 역할</strong> · {{ activity.role | escape }}</p>{% endif %}
+            </div>
+          </article>
+          {% endfor %}
+        </div>
+      </section>
+      {% endif %}
 
       {% if cv.experience.size > 0 %}
       <section class="cv-section" id="experience" aria-labelledby="experience-title">
