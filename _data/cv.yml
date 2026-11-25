@@ -2,6 +2,10 @@ name: arecia
 headline: 탐색 · 분석 · 기록
 summary: 프로젝트 · 수상 · 글
 links: []
-awards: []
+awards:
+  - title: "도구 제작 부문 우수상 (예시)"
+    year: "2026"
+    organization: "가상 아카이브 해커톤"
+    description: "로그 뷰어 Trace Note를 출품한 가상의 수상 사례입니다."
 experience: []
 education: []
