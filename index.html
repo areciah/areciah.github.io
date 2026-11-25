@@ -6,12 +6,20 @@ layout: default
   <div class="hero-copy">
     <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> ARECIA / ACTIVE ARCHIVE</p>
     <h1 id="hero-title" aria-label="탐색 중, 분석 중, 기록 중"><span data-hero-status>탐색 중</span><span class="hero-status-dots" data-hero-dots aria-hidden="true">...</span></h1>
-    <p class="hero-description">프로젝트 · 수상 · 글</p>
+    <p class="hero-description">글 · 프로젝트 · 수상</p>
     <div class="hero-actions">
-      <a class="button button-primary" href="#work">작업</a>
-      <a class="button button-quiet" href="#posts">글</a>
+      <a class="button button-primary" href="#posts">글 읽기</a>
+      <a class="button button-quiet" href="#work">프로젝트</a>
     </div>
-    <p class="hero-footnote">EXPLORE · ANALYZE · LOG</p>
+    {% assign latest_post = site.posts.first %}
+    {% if latest_post %}
+    <a class="hero-latest" href="{{ latest_post.url | relative_url }}">
+      <span class="hero-latest-label">LATEST LOG / {{ latest_post.date | date: '%Y.%m.%d' }}</span>
+      <strong>{{ latest_post.title | escape }}</strong>
+      {% if latest_post.description %}<span class="hero-latest-description">{{ latest_post.description | escape }}</span>{% endif %}
+      <span class="hero-latest-arrow" aria-hidden="true">↗</span>
+    </a>
+    {% endif %}
   </div>
   <div class="archive-visual" aria-hidden="true">
     <span class="visual-label visual-label-top">ARCHIVE OBJECT / 001</span>
@@ -32,39 +40,10 @@ layout: default
 </section>
 
 <nav class="section-index container" aria-label="블로그 바로가기">
-  <a href="#work"><span class="index-number">01 / WORK</span><strong>프로젝트</strong><span class="index-detail">{{ cv.projects.size }}개의 작업</span></a>
-  <a href="#awards"><span class="index-number">02 / RECOGNITION</span><strong>수상 내역</strong><span class="index-detail">{{ cv.awards.size }}개의 기록</span></a>
-  <a href="#posts"><span class="index-number">03 / LOG</span><strong>기록</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
+  <a href="#posts"><span class="index-number">01 / LOG</span><strong>글</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
+  <a href="#work"><span class="index-number">02 / WORK</span><strong>프로젝트</strong><span class="index-detail">{{ cv.projects.size }}개의 작업</span></a>
+  <a href="#awards"><span class="index-number">03 / AWARDS</span><strong>수상 내역</strong><span class="index-detail">{{ cv.awards.size }}개의 기록</span></a>
 </nav>
-
-<section class="work-section container" id="work" aria-labelledby="work-title">
-  <div class="section-heading">
-    <div><p class="section-label">/ SELECTED WORK</p><h2 id="work-title">프로젝트<span class="accent">.</span></h2></div>
-    <a class="section-more" href="{{ '/cv/' | relative_url }}">CV 열기</a>
-  </div>
-  <div class="work-grid">
-    <div class="work-list">
-      {% if cv.projects.size > 0 %}
-      {% for project in cv.projects limit:2 %}
-      <article class="work-card">
-        <div class="work-card-top"><span>{{ project.type | escape }}</span><span>{{ project.period | escape }}</span></div>
-        <h3>{{ project.title | escape }}</h3>
-        <p>{{ project.description | escape }}</p>
-        {% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}
-      </article>
-      {% endfor %}
-      {% else %}<div class="work-empty">아직 공개한 프로젝트가 없습니다.</div>{% endif %}
-    </div>
-    <aside class="awards-preview" id="awards" aria-labelledby="awards-preview-title">
-      <p class="section-label">/ RECOGNITION</p>
-      <h3 id="awards-preview-title">수상 내역</h3>
-      {% if cv.awards.size > 0 %}
-      <ul>{% for award in cv.awards limit:2 %}<li><span>{{ award.year | escape }}</span><strong>{{ award.title | escape }}</strong><small>{{ award.organization | escape }}</small></li>{% endfor %}</ul>
-      {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
-      <a href="{{ '/cv/' | relative_url }}#awards">수상 내역 전체 보기</a>
-    </aside>
-  </div>
-</section>
 
 <section class="posts-section container" id="posts" aria-labelledby="posts-title">
   <div class="section-heading">
@@ -88,6 +67,35 @@ layout: default
   {% else %}
   <div class="empty-state">아직 공개한 글이 없습니다.</div>
   {% endif %}
+</section>
+
+<section class="work-section container" id="work" aria-labelledby="work-title">
+  <div class="section-heading">
+    <div><p class="section-label">/ SELECTED WORK</p><h2 id="work-title">프로젝트<span class="accent">.</span></h2></div>
+    <a class="section-more" href="{{ '/cv/' | relative_url }}">소개 보기</a>
+  </div>
+  <div class="work-grid">
+    <div class="work-list">
+      {% if cv.projects.size > 0 %}
+      {% for project in cv.projects limit:2 %}
+      <article class="work-card">
+        <div class="work-card-top"><span>{{ project.type | escape }}</span><span>{{ project.period | escape }}</span></div>
+        <h3>{{ project.title | escape }}</h3>
+        <p>{{ project.description | escape }}</p>
+        {% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}
+      </article>
+      {% endfor %}
+      {% else %}<div class="work-empty">아직 공개한 프로젝트가 없습니다.</div>{% endif %}
+    </div>
+    <aside class="awards-preview" id="awards" aria-labelledby="awards-preview-title">
+      <p class="section-label">/ RECOGNITION</p>
+      <h3 id="awards-preview-title">수상 내역</h3>
+      {% if cv.awards.size > 0 %}
+      <ul>{% for award in cv.awards limit:2 %}<li><span>{{ award.year | escape }}</span><strong>{{ award.title | escape }}</strong><small>{{ award.organization | escape }}</small></li>{% endfor %}</ul>
+      {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
+      <a href="{{ '/cv/' | relative_url }}#awards">수상 내역 더 보기</a>
+    </aside>
+  </div>
 </section>
 
 <section class="about-section" id="about" aria-labelledby="about-title">

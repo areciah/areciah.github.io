@@ -1,27 +1,27 @@
 ---
 layout: default
-title: CV
-description: arecia의 프로젝트와 수상 내역.
+title: 소개
+description: arecia의 작업과 기록.
 ---
 {% assign cv = site.data.cv %}
 <div class="cv-page container">
-  <div class="cv-topline"><span>PROFILE / CURRICULUM VITAE</span><span>ARECIA ARCHIVE</span></div>
+  <div class="cv-topline"><span>ABOUT / ARECIA</span><span>WORK · NOTES</span></div>
   <header class="cv-header">
     <div>
-      <p class="section-label">/ PROFILE</p>
+      <p class="section-label">/ ABOUT</p>
       <h1>{{ cv.name | escape }}</h1>
       <p class="cv-headline">{{ cv.headline | escape }}</p>
       <p class="cv-summary">{{ cv.summary | escape }}</p>
     </div>
     <div class="cv-actions">
-      <button type="button" data-print-cv>PDF로 저장 / 인쇄</button>
+      <button type="button" data-print-cv>저장 / 인쇄</button>
       {% for link in cv.links %}<a href="{{ link.url | escape }}" target="_blank" rel="noopener noreferrer">{{ link.label | escape }}</a>{% endfor %}
     </div>
   </header>
 
   <div class="cv-grid">
-    <nav class="cv-index" aria-label="CV 목차">
-      <span>CONTENTS</span>
+    <nav class="cv-index" aria-label="소개 목차">
+      <span>INDEX</span>
       <a href="#projects">프로젝트</a>
       <a href="#awards">수상 내역</a>
       {% if cv.experience.size > 0 %}<a href="#experience">경력</a>{% endif %}
@@ -30,7 +30,7 @@ description: arecia의 프로젝트와 수상 내역.
     </nav>
     <div class="cv-content">
       <section class="cv-section" id="projects" aria-labelledby="projects-title">
-        <div class="cv-section-head"><span>01 / WORK</span><h2 id="projects-title">프로젝트</h2></div>
+        <div class="cv-section-head"><span>01 / PROJECTS</span><h2 id="projects-title">프로젝트</h2></div>
         {% if cv.projects.size > 0 %}
         <div class="cv-records">
           {% for project in cv.projects %}
@@ -44,7 +44,7 @@ description: arecia의 프로젝트와 수상 내역.
       </section>
 
       <section class="cv-section" id="awards" aria-labelledby="awards-title">
-        <div class="cv-section-head"><span>02 / RECOGNITION</span><h2 id="awards-title">수상 내역</h2></div>
+        <div class="cv-section-head"><span>02 / AWARDS</span><h2 id="awards-title">수상 내역</h2></div>
         {% if cv.awards.size > 0 %}
         <div class="cv-records">
           {% for award in cv.awards %}

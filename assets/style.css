@@ -33,7 +33,7 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--accent); outlin
 
 main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transparent 75%), var(--bg); }
 .hero { display: grid; grid-template-columns: minmax(0, 1fr) minmax(360px, .94fr); align-items: center; gap: clamp(40px, 6vw, 86px); padding-block: 76px 79px; }
-.eyebrow, .hero-footnote, .section-label, .section-index, .post-count, .post-row-top, .post-row-foot, .about-prompt, .post-meta, .back-link, .post-end, .site-footer { font-family: var(--mono); }
+.eyebrow, .section-label, .section-index, .post-count, .post-row-top, .post-row-foot, .about-prompt, .post-meta, .back-link, .post-end, .site-footer { font-family: var(--mono); }
 .eyebrow { display: flex; align-items: center; gap: 10px; margin: 0 0 27px; color: var(--accent-soft); font-size: .73rem; letter-spacing: .12em; }
 .signal-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--accent); box-shadow: 0 0 14px #ff7484a0; }
 .hero h1 { margin: 0; font-size: clamp(3.2rem, 5.2vw, 5.2rem); font-weight: 650; line-height: 1.19; letter-spacing: -.07em; word-break: keep-all; }
@@ -46,7 +46,12 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .button-primary:hover { background: #ff9da9; }
 .button-quiet { color: var(--text); }
 .button-quiet:hover { border-color: var(--accent); color: var(--accent); }
-.hero-footnote { margin: 45px 0 0; color: #756975; font-size: .69rem; letter-spacing: .16em; }
+.hero-latest { position: relative; display: grid; gap: 9px; max-width: 500px; margin-top: 32px; padding: 18px 48px 20px 20px; border: 1px solid var(--line); border-left: 2px solid var(--accent); border-radius: 6px; background: #1b151e; }
+.hero-latest:hover { border-color: #a96b7c; background: var(--raised); }
+.hero-latest-label { color: var(--accent); font: 700 .68rem var(--mono); letter-spacing: .09em; }
+.hero-latest strong { overflow: hidden; color: var(--text); font-size: 1.13rem; font-weight: 650; letter-spacing: -.03em; text-overflow: ellipsis; white-space: nowrap; }
+.hero-latest-description { overflow: hidden; color: var(--muted); font-size: .83rem; text-overflow: ellipsis; white-space: nowrap; }
+.hero-latest-arrow { position: absolute; top: 50%; right: 19px; color: var(--accent); font-size: 1.25rem; transform: translateY(-50%); }
 .archive-visual { position: relative; aspect-ratio: 1; min-height: 390px; overflow: hidden; isolation: isolate; border: 1px solid #4b3946; border-radius: 16px; background: radial-gradient(circle at 52% 47%, #553240 0, #2a1d29 37%, #151119 78%); }
 .archive-visual::before { content: ""; position: absolute; inset: 0; background-image: linear-gradient(#ffb8c00b 1px, transparent 1px), linear-gradient(90deg, #ffb8c00b 1px, transparent 1px); background-size: 33px 33px; mask-image: radial-gradient(circle, black 10%, transparent 80%); }
 .archive-visual::after { content: ""; position: absolute; inset: 0; pointer-events: none; box-shadow: inset 0 0 70px #09050bc0; }
@@ -69,7 +74,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .section-index strong { color: var(--text); font-family: "Apple SD Gothic Neo", "Malgun Gothic", sans-serif; font-size: 1.13rem; letter-spacing: -.04em; }
 .index-detail { overflow: hidden; color: var(--soft); font-size: .72rem; text-overflow: ellipsis; white-space: nowrap; }
 
-.work-section { padding-block: 96px 100px; scroll-margin-top: 24px; }
+.work-section { padding-block: 84px 100px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
 .section-more { padding: 8px 0; border-bottom: 1px solid #9c6b7c; color: var(--accent); font-size: .83rem; font-weight: 700; white-space: nowrap; }
 .section-more:hover { color: var(--text); }
 .work-grid { display: grid; grid-template-columns: minmax(0, 1.3fr) minmax(260px, .7fr); gap: 18px; }
@@ -91,7 +96,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .awards-preview > a { align-self: flex-start; margin-top: auto; padding-top: 20px; color: var(--accent); font-size: .83rem; font-weight: 700; }
 .awards-preview > a:hover { text-decoration: underline; text-underline-offset: 4px; }
 
-.posts-section { padding-block: 95px 110px; border-top: 1px solid var(--line); scroll-margin-top: 24px; }
+.posts-section { padding-block: 76px 90px; scroll-margin-top: 24px; }
 .section-heading { display: flex; justify-content: space-between; align-items: end; gap: 20px; margin-bottom: 30px; }
 .section-label { margin: 0 0 12px; color: var(--accent); font-size: .71rem; letter-spacing: .13em; }
 .section-heading h2, .about-section h2 { margin: 0; font-size: clamp(2.4rem, 4vw, 3.7rem); font-weight: 650; line-height: 1.22; letter-spacing: -.06em; }
@@ -205,7 +210,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
   .hero { gap: 35px; padding-block: 55px 58px; }
   .hero h1 { font-size: clamp(2.55rem, 10vw, 3.8rem); }
   .hero-description { font-size: 1rem; }
-  .hero-footnote { margin-top: 30px; }
+  .hero-latest { margin-top: 26px; }
   .archive-visual { min-height: 320px; }
   .section-index { grid-template-columns: 1fr; }
   .section-index a { grid-template-columns: 100px 1fr; gap: 3px 12px; padding: 17px 0; border-right: 0; border-bottom: 1px solid var(--line); }
