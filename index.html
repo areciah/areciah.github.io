@@ -4,7 +4,7 @@ layout: default
 {% assign cv = site.data.cv %}
 <section class="hero container" aria-labelledby="hero-title">
   <div class="hero-copy">
-    <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> ARECIA / IN PROGRESS</p>
+    <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> ARECIA / ACTIVE ARCHIVE</p>
     <h1 id="hero-title" aria-label="탐색 중, 분석 중, 기록 중"><span data-hero-status>탐색 중</span><span class="hero-status-dots" data-hero-dots aria-hidden="true">...</span></h1>
     <p class="hero-description">프로젝트 · 수상 · 글</p>
     <div class="hero-actions">
@@ -34,7 +34,7 @@ layout: default
 <nav class="section-index container" aria-label="블로그 바로가기">
   <a href="#work"><span class="index-number">01 / WORK</span><strong>프로젝트</strong><span class="index-detail">{{ cv.projects.size }}개의 작업</span></a>
   <a href="#awards"><span class="index-number">02 / RECOGNITION</span><strong>수상 내역</strong><span class="index-detail">{{ cv.awards.size }}개의 기록</span></a>
-  <a href="#posts"><span class="index-number">03 / WRITING</span><strong>기록</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
+  <a href="#posts"><span class="index-number">03 / LOG</span><strong>기록</strong><span class="index-detail">{{ site.posts.size }}개의 글</span></a>
 </nav>
 
 <section class="work-section container" id="work" aria-labelledby="work-title">
@@ -68,7 +68,7 @@ layout: default
 
 <section class="posts-section container" id="posts" aria-labelledby="posts-title">
   <div class="section-heading">
-    <div><p class="section-label">/ FIELD NOTES</p><h2 id="posts-title">최근 기록<span class="accent">.</span></h2></div>
+    <div><p class="section-label">/ LOG</p><h2 id="posts-title">최근 기록<span class="accent">.</span></h2></div>
     <span class="post-count">{{ site.posts.size }} LOGS</span>
   </div>
   {% if site.posts.size > 0 %}
@@ -92,7 +92,7 @@ layout: default
 
 <section class="about-section" id="about" aria-labelledby="about-title">
   <div class="container about-grid">
-    <div><p class="section-label">/ ABOUT THIS SPACE</p><h2 id="about-title">계속되는<br>기록<span class="accent">.</span></h2></div>
-    <div class="about-copy"><p>시도, 수정, 발견. 그 사이의 과정까지.</p><span class="about-prompt">arecia@archive:~$ inspect --notes<span class="cursor">_</span></span></div>
+    <div><p class="section-label">/ IN PROGRESS</p><h2 id="about-title">계속<br>업데이트 중<span class="accent">.</span></h2></div>
+    <div class="about-copy"><p>시도 → 확인 → 기록 → 다시 시도.</p><span class="about-prompt">arecia@archive:~$ inspect --notes<span class="cursor">_</span></span></div>
   </div>
 </section>
