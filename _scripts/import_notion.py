@@ -1,4 +1,5 @@
 """Build-time import, run from the root of a fresh checkout."""
+import base64
 import hashlib
 import json
 import os
@@ -48,6 +49,24 @@ def plain(items):
     return "".join(item["plain_text"] for item in items)
 
 
+LOCKED = "발행 (비밀번호)"
+
+
+def encrypt_article(markdown, password):
+    from cryptography.hazmat.primitives.ciphers.aead import AESGCM
+    from markdown_it import MarkdownIt
+
+    salt, nonce = os.urandom(16), os.urandom(12)
+    iterations = 600_000
+    key = hashlib.pbkdf2_hmac("sha256", password.encode(), salt, iterations, dklen=32)
+    html = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
+    encrypted = AESGCM(key).encrypt(nonce, html.encode(), None)
+    return {"iterations": iterations, **{
+        name: base64.b64encode(value).decode("ascii")
+        for name, value in (("salt", salt), ("nonce", nonce), ("ciphertext", encrypted))
+    }}
+
+
 def export(page):
     props = page["properties"]
     title = next(p["title"] for p in props.values() if p["type"] == "title")
@@ -67,7 +86,16 @@ def export(page):
     content = api(f"pages/{page_id}/markdown?markdown_version=v2")
     if content.get("truncated"):
         raise ValueError(f"Incomplete Notion page: {page_id}")
-    body = re.sub(r"""https://[^\s<>"')]+""", store_attachment, content["markdown"])
+    password = plain(props.get("글 비밀번호", {}).get("rich_text", []))
+    protected = props.get("상태", {}).get("status", {}).get("name") == LOCKED
+    if protected or password:
+        if not protected or not password.strip():
+            raise SystemExit(f"글 {page_id}: 잠금 발행에는 '발행 (비밀번호)' 상태와 글 비밀번호가 모두 필요합니다.")
+        metadata.update(layout="locked-post", locked=True, description="", tags=[], categories=[],
+                        payload=encrypt_article(content["markdown"], password))
+        body = ""
+    else:
+        body = re.sub(r"""https://[^\s<>"')]+""", store_attachment, content["markdown"])
     header = "\n".join(f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in metadata.items())
     Path("_posts").mkdir(exist_ok=True)
     Path(f"_posts/{day}-notion-{page_id}.md").write_text(f"---\n{header}\n---\n\n{body}\n", encoding="utf-8")
@@ -112,7 +140,8 @@ def main():
     if not os.getenv("NOTION_TOKEN") or not os.getenv("DATABASE_ID"):
         raise SystemExit("Set the NOTION_TOKEN and DATABASE_ID repository secrets.")
     source = resolve_source(os.environ["DATABASE_ID"])
-    query = {"filter": {"property": "상태", "status": {"equals": "발행"}}}
+    query = {"filter": {"or": [{"property": "상태", "status": {"equals": state}}
+                               for state in ("발행", LOCKED)]}}
     count = 0
     while True:
         result = api(f"data_sources/{source}/query", query)

@@ -14,7 +14,7 @@ layout: default
     {% if latest_post %}
     <a class="hero-latest" href="{{ latest_post.url | relative_url }}">
       <span class="hero-latest-label">최신 글 · {{ latest_post.date | date: '%Y.%m.%d' }}</span>
-      <strong>{{ latest_post.title | escape }}</strong>
+      <strong>{% if latest_post.locked %}<span aria-label="비밀번호 보호">🔒</span> {% endif %}{{ latest_post.title | escape }}</strong>
       {% if latest_post.description %}<span class="hero-latest-description">{{ latest_post.description | escape }}</span>{% endif %}
       <span class="hero-latest-arrow" aria-hidden="true">↗</span>
     </a>

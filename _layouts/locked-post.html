@@ -1,0 +1,17 @@
+---
+layout: default
+---
+<article class="post-page">
+  <a class="back-link" href="{{ '/posts/' | relative_url }}">글 목록</a>
+  <header class="post-header"><h1>{{ page.title | escape }}</h1></header>
+  <form id="unlock-form" class="unlock-form">
+    <label for="post-password">글 비밀번호</label>
+    <input id="post-password" type="password" autocomplete="off" required>
+    <button class="button button-primary">본문 열기</button>
+    <p role="status" id="unlock-status"></p>
+  </form>
+  <noscript>본문을 열려면 JavaScript를 켜주세요.</noscript>
+  <div class="post-body" id="protected-body" hidden tabindex="-1"></div>
+  <script type="application/json" id="protected-data">{{ page.payload | jsonify }}</script>
+  <script src="{{ '/assets/unlock.js' | relative_url }}" defer></script>
+</article>

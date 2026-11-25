@@ -21,6 +21,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+      - name: Install protected article dependencies
+        run: python3 -m pip install cryptography markdown-it-py
       - name: Import published Notion posts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}
