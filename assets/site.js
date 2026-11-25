@@ -20,7 +20,7 @@
           dotCount += 1;
         }
         statusDots.textContent = '.'.repeat(dotCount);
-      }, 520);
+      }, 800);
     };
     const stop = () => {
       window.clearInterval(timer);
