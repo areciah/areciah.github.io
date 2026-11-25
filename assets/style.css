@@ -282,3 +282,14 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .project-topic { color: var(--accent); font: .78rem var(--mono); }
 .project-summary h3 { margin: 10px 0 6px; font-size: 1.4rem; }
 .project-summary p { margin: 0; color: var(--muted); line-height: 1.65; }
+
+/* Rouge tokens share the article palette on posts and projects. */
+.post-body pre { background: #151116; color: #efe6eb; border-color: #46303a; tab-size: 4; }
+.post-body code { font-family: var(--mono); }
+.post-body :not(pre) > code { padding: .1em .32em; border-radius: .25em; background: #30212a; color: #ffd1da; }
+.highlight :is(.k,.kc,.kd,.kn,.kp,.kr,.kt,.ow) { color: #ff92a4; }
+.highlight :is(.s,.s1,.s2,.sa,.sb,.sc,.sd,.se,.sh,.si,.sr,.ss) { color: #f2ce9d; }
+.highlight :is(.m,.mf,.mh,.mi,.il,.mo,.mb,.no) { color: #d8b6fa; }
+.highlight :is(.nf,.fm,.nc,.nb,.bp) { color: #adcff2; }
+.highlight :is(.na,.nt,.nv,.vc,.vg,.vi) { color: #f6b9c7; }
+.highlight :is(.c,.c1,.cm,.cp,.cs,.ch) { color: #b2a3ad; font-style: italic; }
