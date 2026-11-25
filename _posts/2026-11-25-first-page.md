@@ -1,6 +1,6 @@
 ---
 layout: post
-title: "같은 요청의 로그 묶어 읽기 (예시)"
+title: "요청 ID와 로그 분석 (예시)"
 description: "시간순으로 읽다가 놓친 한 줄을 요청 ID로 다시 찾아본다."
 date: 2026-11-25
 category: 개발 노트

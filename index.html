@@ -7,7 +7,7 @@ layout: default
     <p class="eyebrow"><span class="signal-dot" aria-hidden="true"></span> ARECIA / ACTIVE ARCHIVE</p>
     <h1 id="hero-title" aria-label="탐색 중, 분석 중, 기록 중"><span data-hero-status>탐색 중</span><span class="hero-status-dots" data-hero-dots aria-hidden="true">...</span></h1>
     <div class="hero-actions">
-      <a class="button button-primary" href="{{ '/posts/' | relative_url }}">글 읽기</a>
+      <a class="button button-primary" href="{{ '/posts/' | relative_url }}">전체 글</a>
       <a class="button button-quiet" href="#work">프로젝트</a>
     </div>
     {% assign latest_post = site.posts.first %}
@@ -35,7 +35,7 @@ layout: default
 <section class="posts-section container" id="posts" aria-labelledby="posts-title">
   <div class="section-heading">
     <div><h2 id="posts-title">최근 기록<span class="accent">.</span></h2></div>
-    <a class="section-more" href="{{ '/posts/' | relative_url }}">전체 글 보기 →</a>
+    <a class="section-more" href="{{ '/posts/' | relative_url }}">전체 글 →</a>
   </div>
   {% if site.posts.size > 0 %}
   <div class="post-list">
@@ -51,7 +51,7 @@ layout: default
 <section class="work-section container" id="work" aria-labelledby="work-title">
   <div class="section-heading">
     <div><h2 id="work-title">프로젝트<span class="accent">.</span></h2></div>
-    <a class="section-more" href="{{ '/cv/' | relative_url }}">소개 보기</a>
+    <a class="section-more" href="{{ '/cv/' | relative_url }}">소개</a>
   </div>
   <div class="work-grid">
     <div class="work-list">
@@ -66,7 +66,7 @@ layout: default
       {% if cv.awards.size > 0 %}
       <ul>{% for award in cv.awards limit:2 %}<li><span>{{ award.year | escape }}</span><strong>{{ award.title | escape }}</strong><small>{{ award.organization | escape }}</small></li>{% endfor %}</ul>
       {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
-      <a href="{{ '/cv/' | relative_url }}#awards">수상 내역 더 보기</a>
+      <a href="{{ '/cv/' | relative_url }}#awards">전체 수상 내역</a>
     </aside>
   </div>
 </section>
