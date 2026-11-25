@@ -31,13 +31,10 @@ description: arecia의 작업과 기록.
     <div class="cv-content">
       <section class="cv-section" id="projects" aria-labelledby="projects-title">
         <div class="cv-section-head"><span>01 / PROJECTS</span><h2 id="projects-title">프로젝트</h2></div>
-        {% if cv.projects.size > 0 %}
+        {% if site.projects.size > 0 %}
         <div class="cv-records">
-          {% for project in cv.projects %}
-          <article class="cv-record">
-            <div class="cv-record-meta"><span>{{ project.period | escape }}</span><span>{{ project.type | escape }}</span></div>
-            <div><h3>{{ project.title | escape }}</h3><p>{{ project.description | escape }}</p>{% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}</div>
-          </article>
+          {% for project in site.projects %}
+          {% include project-summary.html %}
           {% endfor %}
         </div>
         {% else %}<p class="cv-empty">아직 공개한 프로젝트가 없습니다.</p>{% endif %}

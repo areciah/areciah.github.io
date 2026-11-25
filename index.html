@@ -55,14 +55,9 @@ layout: default
   </div>
   <div class="work-grid">
     <div class="work-list">
-      {% if cv.projects.size > 0 %}
-      {% for project in cv.projects limit:2 %}
-      <article class="work-card">
-        <div class="work-card-top"><span>{{ project.type | escape }}</span><span>{{ project.period | escape }}</span></div>
-        <h3>{{ project.title | escape }}</h3>
-        <p>{{ project.description | escape }}</p>
-        {% if project.url %}<a href="{{ project.url | escape }}" target="_blank" rel="noopener noreferrer">프로젝트 보기</a>{% endif %}
-      </article>
+      {% if site.projects.size > 0 %}
+      {% for project in site.projects limit:2 %}
+          {% include project-summary.html %}
       {% endfor %}
       {% else %}<div class="work-empty">아직 공개한 프로젝트가 없습니다.</div>{% endif %}
     </div>

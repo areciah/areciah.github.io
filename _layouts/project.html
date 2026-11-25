@@ -1,0 +1,12 @@
+---
+layout: default
+---
+<article class="post-page">
+  <a class="back-link" href="{{ '/cv/' | relative_url }}#projects">프로젝트 목록</a>
+  <header class="post-header">
+    <p class="post-meta">{{ page.topic | escape }}</p>
+    <h1>{{ page.title | escape }}</h1>
+    <p class="post-deck">{{ page.description | escape }}</p>
+  </header>
+  <div class="post-body">{{ content }}</div>
+</article>
