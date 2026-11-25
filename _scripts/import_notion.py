@@ -68,6 +68,7 @@ def export(page):
         raise ValueError(f"Incomplete Notion page: {page_id}")
     body = re.sub(r"""https://[^\s<>"')]+""", store_attachment, content["markdown"])
     header = "\n".join(f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in metadata.items())
+    Path("_posts").mkdir(exist_ok=True)
     Path(f"_posts/{day}-notion-{page_id}.md").write_text(f"---\n{header}\n---\n\n{body}\n", encoding="utf-8")
 
     redirects = Path("redirects")
