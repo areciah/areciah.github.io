@@ -265,3 +265,9 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
   .cv-empty { background: transparent; }
   @page { margin: 18mm; }
 }
+
+.writing-archive { padding-block: clamp(48px, 7vw, 88px) 96px; }
+.writing-archive h1 { margin: 0; font-size: clamp(2.6rem, 5vw, 4rem); letter-spacing: -.06em; }
+.archive-filters:not([hidden]) { display: flex; flex-wrap: wrap; gap: 12px 24px; margin-bottom: 26px; }
+.archive-filters label { display: inline-flex; align-items: center; gap: 8px; color: var(--muted); font-size: .9rem; }
+.archive-filters select { padding: 8px; border: 1px solid var(--line); border-radius: 5px; background: var(--surface); color: var(--text); font: inherit; }
