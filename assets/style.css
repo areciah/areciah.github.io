@@ -309,4 +309,23 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 
 .code-bar { display: flex; align-items: center; justify-content: space-between; padding: .55em 1em; background: var(--surface); color: var(--accent-soft); font: .8rem var(--mono); }
 .code-bar + pre { margin-top: 0; }
-.code-bar button { color: var(--text); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: .35em .7em; cursor: pointer; }
+
+.code-bar .copy-feedback { margin-inline: auto .35rem; font-size: .72rem; }
+.copy-code {
+  display: inline-grid;
+  place-items: center;
+  width: 2.25rem;
+  height: 2.25rem;
+  border: 0;
+  border-radius: 6px;
+  background: transparent;
+  color: var(--muted);
+  cursor: pointer;
+}
+.copy-code:is(:hover, :focus-visible) { background: var(--raised); color: var(--text); }
+.copy-code.copied { color: var(--accent); }
+.copy-code .copy-check, .copy-code.copied .copy-sheets { display: none; }
+.copy-code.copied .copy-check { display: inline; }
+@media (pointer: coarse) {
+  .copy-code { width: 44px; height: 44px; }
+}

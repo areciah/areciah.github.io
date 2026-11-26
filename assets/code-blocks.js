@@ -13,16 +13,34 @@
       if (!output) {
         const button = document.createElement('button');
         button.type = 'button';
-        button.textContent = '복사';
+        button.className = 'copy-code';
+        button.setAttribute('aria-label', '코드 복사');
+        button.title = '코드 복사';
+        button.innerHTML = `<svg viewBox="0 0 24 24" width="17" height="17" fill="none"
+          stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <g class="copy-sheets"><rect x="8" y="8" width="12" height="13" rx="2"/>
+          <path d="M15 5V4a1 1 0 0 0-1-1H5a2 2 0 0 0-2 2v10a1 1 0 0 0 1 1h1"/></g>
+          <path class="copy-check" d="m5 12 4 4L19 6"/></svg>`;
+        const status = document.createElement('span');
+        status.className = 'copy-feedback';
+        status.setAttribute('role', 'status');
+        let resetTimer;
         button.addEventListener('click', async () => {
           try {
             await navigator.clipboard.writeText(code.textContent);
-            button.textContent = '복사됨';
+            button.classList.add('copied');
+            status.textContent = '복사됨';
           } catch {
-            button.textContent = '복사 실패';
+            button.classList.remove('copied');
+            status.textContent = '복사 실패';
           }
+          clearTimeout(resetTimer);
+          resetTimer = setTimeout(() => {
+            button.classList.remove('copied');
+            status.textContent = '';
+          }, 2000);
         });
-        bar.append(button);
+        bar.append(status, button);
       }
       pre.before(bar);
     }
