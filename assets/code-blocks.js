@@ -42,7 +42,10 @@
         });
         bar.append(status, button);
       }
-      pre.before(bar);
+      const block = document.createElement('div');
+      block.className = 'code-block';
+      pre.replaceWith(block);
+      block.append(bar, pre);
     }
   }
   document.querySelectorAll('.post-body').forEach(decorate);

@@ -307,8 +307,23 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .unlock-form label { display: block; margin-bottom: .6rem; }
 .unlock-form input { padding: .8rem; max-width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; color: var(--text); font: inherit; }
 
-.code-bar { display: flex; align-items: center; justify-content: space-between; padding: .55em 1em; background: var(--surface); color: var(--accent-soft); font: .8rem var(--mono); }
-.code-bar + pre { margin-top: 0; }
+.post-body .code-block {
+  min-width: 0;
+  margin-block: 1em;
+  overflow: hidden;
+  border: 1px solid #46303a;
+  border-radius: 7px;
+  background: #151116;
+}
+.code-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: .4rem .55rem .25rem 1rem;
+  color: var(--muted);
+  font: .78rem var(--mono);
+}
+.post-body .code-block > pre { margin: 0; padding: .35rem 1rem 1rem; border: 0; border-radius: 0; background: transparent; }
 
 .code-bar .copy-feedback { margin-inline: auto .35rem; font-size: .72rem; }
 .copy-code {
