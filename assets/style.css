@@ -338,6 +338,9 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
   cursor: pointer;
 }
 .copy-code:is(:hover, :focus-visible) { background: var(--raised); color: var(--text); }
+@media not (pointer: coarse) {
+  .code-block:not(:hover) .copy-code:not(:focus-visible) { opacity: 0; pointer-events: none; }
+}
 .copy-code.copied { color: var(--accent); }
 .copy-code .copy-check, .copy-code.copied .copy-sheets { display: none; }
 .copy-code.copied .copy-check { display: inline; }
