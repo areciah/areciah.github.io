@@ -19,6 +19,7 @@ form.addEventListener('submit', async event => {
       key, bytes(payload.ciphertext));
     const body = document.getElementById('protected-body');
     body.innerHTML = new TextDecoder().decode(plaintext);
+    body.dispatchEvent(new CustomEvent('article-unlocked', { bubbles: true }));
     body.hidden = false;
     password.value = '';
     form.hidden = true;

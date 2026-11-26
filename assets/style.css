@@ -299,3 +299,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .unlock-form { margin-block: 2rem; }
 .unlock-form label { display: block; margin-bottom: .6rem; }
 .unlock-form input { padding: .8rem; max-width: 100%; background: var(--surface); border: 1px solid var(--line); border-radius: 5px; color: var(--text); font: inherit; }
+
+.code-bar { display: flex; align-items: center; justify-content: space-between; padding: .55em 1em; background: var(--surface); color: var(--accent-soft); font: .8rem var(--mono); }
+.code-bar + pre { margin-top: 0; }
+.code-bar button { color: var(--text); background: transparent; border: 1px solid var(--line); border-radius: 4px; padding: .35em .7em; cursor: pointer; }

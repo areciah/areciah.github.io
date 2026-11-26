@@ -51,6 +51,9 @@
         <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
       </footer>
     </div>
+    {% if page.layout == 'post' or page.layout == 'project' or page.layout == 'locked-post' %}
+    <script src="{{ '/assets/code-blocks.js' | relative_url }}" defer></script>
+    {% endif %}
     <script src="{{ '/assets/site.js' | relative_url }}?v=status-2" defer></script>
   </body>
 </html>
