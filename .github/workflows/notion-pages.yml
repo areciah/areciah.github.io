@@ -22,7 +22,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4
       - name: Install protected article dependencies
-        run: python3 -m pip install cryptography markdown-it-py
+        run: python3 -m pip install cryptography markdown-it-py Pygments
       - name: Import published Notion posts
         env:
           NOTION_TOKEN: ${{ secrets.NOTION_TOKEN }}

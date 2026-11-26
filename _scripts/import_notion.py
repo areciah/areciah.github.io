@@ -55,11 +55,26 @@ LOCKED = "발행 (비밀번호)"
 def encrypt_article(markdown, password):
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
     from markdown_it import MarkdownIt
+    from pygments import highlight
+    from pygments.formatters import HtmlFormatter
+    from pygments.lexers import get_lexer_by_name
+    from pygments.util import ClassNotFound
+
+    def highlight_fence(code, language, attributes):
+        if not language or language.lower() in {"text", "txt", "plaintext", "output", "console"}:
+            return ""  # MarkdownIt escapes and renders plain text.
+        try:
+            lexer = get_lexer_by_name(language.lower(), stripnl=False, ensurenl=False)
+        except ClassNotFound:
+            return ""
+        tokens = highlight(code, lexer, HtmlFormatter(nowrap=True))
+        return f'<span class="highlight">{tokens}</span>'
+
 
     salt, nonce = os.urandom(16), os.urandom(12)
     iterations = 600_000
     key = hashlib.pbkdf2_hmac("sha256", password.encode(), salt, iterations, dklen=32)
-    html = MarkdownIt("commonmark", {"html": False}).enable("table").render(markdown)
+    html = MarkdownIt("commonmark", {"html": False, "highlight": highlight_fence}).enable("table").render(markdown)
     encrypted = AESGCM(key).encrypt(nonce, html.encode(), None)
     return {"iterations": iterations, **{
         name: base64.b64encode(value).decode("ascii")
