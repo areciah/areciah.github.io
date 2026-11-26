@@ -217,6 +217,13 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
   .hero h1 { font-size: clamp(2.55rem, 10vw, 3.8rem); }
   .hero-description { font-size: 1rem; }
   .hero-latest { margin-top: 26px; }
+  .hero-latest strong {
+    display: -webkit-box;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 2;
+    white-space: normal;
+    overflow-wrap: anywhere;
+  }
   .archive-visual { min-height: 320px; }
   .section-index { grid-template-columns: 1fr; }
   .section-index a { grid-template-columns: 100px 1fr; gap: 3px 12px; padding: 17px 0; border-right: 0; border-bottom: 1px solid var(--line); }
