@@ -21,7 +21,17 @@
     count.textContent = '글 ' + visible.length + '편';
   }
 
-  filters.addEventListener('change', update);
+  const url = new URL(location.href);
+  const requested = url.searchParams.get('tag');
+  if (tag && Array.from(tag.options).some(option => option.value === requested)) {
+    tag.value = requested;
+  }
+  filters.addEventListener('change', () => {
+    if (tag?.value) url.searchParams.set('tag', tag.value);
+    else url.searchParams.delete('tag');
+    history.replaceState(null, '', url);
+    update();
+  });
   update();
   filters.hidden = false;
 })();
