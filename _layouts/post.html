@@ -13,6 +13,11 @@ layout: default
     {% include post-tags.html tags=page.tags %}
   </header>
   <div class="post-body">{{ content }}</div>
+  {% if page.project %}
+    {% assign project_url = page.project | prepend: '/projects/' | append: '/' %}
+    {% assign related_project = site.projects | where: 'url', project_url | first %}
+    {% if related_project %}<p><a class="back-link" href="{{ related_project.url | relative_url }}">프로젝트 · {{ related_project.title | escape }}</a></p>{% endif %}
+  {% endif %}
   <div class="post-end" aria-hidden="true">// END OF POST</div>
   <nav class="post-bottom-nav" aria-label="글 탐색">
     {% if page.previous %}<a href="{{ page.previous.url | relative_url }}"><small>이전 글</small><strong>{{ page.previous.title | escape }}</strong></a>{% endif %}

@@ -95,6 +95,9 @@ def export(page):
                         payload=encrypt_article(content["markdown"], password))
         body = ""
     else:
+        project = (props.get("프로젝트", {}).get("select") or {}).get("name")
+        if project:
+            metadata["project"] = project
         body = re.sub(r"""https://[^\s<>"')]+""", store_attachment, content["markdown"])
     header = "\n".join(f"{key}: {json.dumps(value, ensure_ascii=False)}" for key, value in metadata.items())
     Path("_posts").mkdir(exist_ok=True)

@@ -10,4 +10,12 @@ layout: default
     {% if page.role and page.role != empty %}<p><strong>맡은 역할</strong> · {{ page.role | escape }}</p>{% endif %}
   </header>
   <div class="post-body">{{ content }}</div>
+  {% assign project_key = page.url | split: '/' | last %}
+  {% assign notes = site.posts | where: 'project', project_key %}
+  {% if notes.size > 0 %}
+  <section aria-labelledby="project-notes">
+    <h2 id="project-notes">관련 기록</h2>
+    {% for post in notes %}{% include post-row.html %}{% endfor %}
+  </section>
+  {% endif %}
 </article>
