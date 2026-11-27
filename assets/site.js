@@ -39,7 +39,16 @@
     'linkedin.com': 'linkedin',
     'instagram.com': 'instagram',
     'x.com': 'x',
-    'twitter.com': 'x'
+    'twitter.com': 'x',
+    'youtube.com': 'youtube',
+    'youtu.be': 'youtube',
+    'discord.com': 'discord',
+    'discord.gg': 'discord',
+    'threads.net': 'threads',
+    'threads.com': 'threads',
+    'bsky.app': 'bluesky',
+    't.me': 'telegram',
+    'telegram.me': 'telegram'
   };
   for (const link of document.querySelectorAll('.cv-contacts a[href]')) {
     const label = link.textContent.trim() || link.href;
