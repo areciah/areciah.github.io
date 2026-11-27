@@ -1,0 +1,37 @@
+{
+  "name": "arecia",
+  "headline": "CTF와 웹 보안 연구",
+  "intro": "공격자의 관점에서 시스템을 살펴보며 오펜시브 보안 연구자를 목표로 공부하고 있습니다. CTF에서는 웹 문제를 풀고, 대회를 운영할 때는 직접 문제와 인프라를 만듭니다.",
+  "sections": [
+    {
+      "title": "수상 내역",
+      "id": "awards",
+      "body": "- <b>DEF CON CTF 34 Finals 7위</b> · 2026.08 · Jinddabi's\n- <b>DEF CON CTF 34 Qualifier 6위</b> · 2026.05 · Jinddabi's\n- <b>CodeGate Quals 2026 5위</b> · 2026.03 · 육개장치즈라면"
+    },
+    {
+      "title": "소속과 팀",
+      "id": "section-2",
+      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국 리드\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab Expedition</b> · 2025.09–현재 · CTF 선수\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수"
+    },
+    {
+      "title": "외부활동",
+      "id": "section-3",
+      "body": "- <b>POSTECH-KAIST 학생대제전 해킹대회</b> · 2026.09.18. 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다.\n- <b>APEX (Allied Power Exercise)</b> · 2026.09.14–18. UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다.\n- <b>Whitehat School 4기 Team CTF Challenge</b> · 2026.07. Web-Guessing 문제 출제와 운영을 맡았습니다.\n- <b>양영디지털고등학교</b> · 2025.08.11–12. 네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다."
+    },
+    {
+      "title": "교육",
+      "id": "section-4",
+      "body": "- <b>순천향대학교 정보보호학과</b> · 2025.03–현재 · 재학\n- <b>Whitehat School 2기</b> · 2024.03–09 · 정보보안 교육"
+    },
+    {
+      "title": "사용 언어",
+      "id": "section-5",
+      "body": "Python · PHP · C · JavaScript\n\n[GitHub 프로필](https://github.com/areciah/areciah)"
+    }
+  ],
+  "awards": [
+    "<b>DEF CON CTF 34 Finals 7위</b> · 2026.08 · Jinddabi's",
+    "<b>DEF CON CTF 34 Qualifier 6위</b> · 2026.05 · Jinddabi's",
+    "<b>CodeGate Quals 2026 5위</b> · 2026.03 · 육개장치즈라면"
+  ]
+}

@@ -347,3 +347,9 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 @media (pointer: coarse) {
   .copy-code { width: 44px; height: 44px; }
 }
+
+.profile-notes { line-height: 1.85; color: var(--muted); }
+.profile-notes ul { padding-inline-start: 1.2em; }
+.profile-notes li + li { margin-top: .6em; }
+.profile-notes strong { color: var(--text); }
+.profile-notes a { color: var(--accent-soft); text-decoration: underline; }

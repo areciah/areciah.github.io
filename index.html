@@ -64,7 +64,7 @@ layout: default
     <aside class="awards-preview" id="awards" aria-labelledby="awards-preview-title">
       <h3 id="awards-preview-title">수상 내역</h3>
       {% if cv.awards.size > 0 %}
-      <ul>{% for award in cv.awards limit:2 %}<li><span>{{ award.year | escape }}</span><strong>{{ award.title | escape }}</strong><small>{{ award.organization | escape }}</small></li>{% endfor %}</ul>
+      <ul>{% for award in cv.awards limit:2 %}<li>{{ award | markdownify }}</li>{% endfor %}</ul>
       {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
       <a href="{{ '/cv/' | relative_url }}#awards">전체 수상 내역</a>
     </aside>
