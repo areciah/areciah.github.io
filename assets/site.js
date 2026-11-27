@@ -50,7 +50,7 @@
     't.me': 'telegram',
     'telegram.me': 'telegram'
   };
-  for (const link of document.querySelectorAll('.cv-contacts a[href]')) {
+  for (const link of document.querySelectorAll('.footer-contacts a[href]')) {
     const label = link.textContent.trim() || link.href;
     const host = link.hostname.toLowerCase().replace(/^www\./, '');
     const service = link.protocol === 'mailto:' ? 'mail' : contactIcons[host];

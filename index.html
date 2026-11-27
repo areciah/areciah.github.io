@@ -10,11 +10,6 @@ layout: default
       <a class="button button-primary" href="{{ '/posts/' | relative_url }}">전체 글</a>
       <a class="button button-quiet" href="{{ '/projects/' | relative_url }}">프로젝트</a>
     </div>
-    {% assign contacts = cv.sections | where: 'title', 'SNS·연락처' | first %}
-    {% if contacts.body and contacts.body != empty %}
-    <div class="profile-notes cv-contacts" role="group" aria-label="SNS·연락처">{{ contacts.body | markdownify }}</div>
-    {% include contact-symbols.html %}
-    {% endif %}
     {% assign latest_post = site.posts.first %}
     {% if latest_post %}
     <a class="hero-latest" href="{{ latest_post.url | relative_url }}">

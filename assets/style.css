@@ -399,13 +399,13 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .profile-notes strong { color: var(--text); }
 .profile-notes a { color: var(--accent-soft); text-decoration: underline; }
 
-.cv-contacts svg { display: none; }
+.footer-contacts svg { display: none; }
 @media screen {
-  .cv-contacts ul { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; padding: 0; list-style: none; }
-  .cv-contacts li + li { margin: 0; }
-  .cv-contacts a:is(.contact-icon, .contact-with-label) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--text); text-decoration: none; }
-  .cv-contacts .contact-icon { width: 44px; font-size: 0; }
-  .cv-contacts .contact-with-label { gap: .45rem; padding-inline: .75rem; }
-  .cv-contacts a:hover, .cv-contacts a:focus-visible { color: var(--accent-soft); border-color: var(--accent); }
-  .cv-contacts svg { display: block; width: 21px; height: 21px; }
+  .footer-contacts ul { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+  .footer-contacts li + li { margin: 0; }
+  .footer-contacts a:is(.contact-icon, .contact-with-label) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--text); text-decoration: none; }
+  .footer-contacts .contact-icon { width: 44px; font-size: 0; }
+  .footer-contacts .contact-with-label { gap: .45rem; padding-inline: .75rem; }
+  .footer-contacts a:hover, .footer-contacts a:focus-visible { color: var(--accent-soft); border-color: var(--accent); }
+  .footer-contacts svg { display: block; width: 21px; height: 21px; }
 }

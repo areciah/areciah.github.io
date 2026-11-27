@@ -48,6 +48,11 @@
           <span class="footer-mark"><img src="{{ '/assets/archive-icon.png' | relative_url }}" alt="" width="29" height="29" aria-hidden="true">{{ site.title }}</span>
           <p>STATUS / IN PROGRESS</p>
         </div>
+        {% assign contacts = site.data.cv.sections | where: 'title', 'SNS·연락처' | first %}
+        {% if contacts.body and contacts.body != empty %}
+        <nav class="footer-contacts" aria-label="SNS·연락처">{{ contacts.body | markdownify }}</nav>
+        {% include contact-symbols.html %}
+        {% endif %}
         <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
       </footer>
     </div>
