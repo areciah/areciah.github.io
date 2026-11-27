@@ -167,7 +167,7 @@ def rich(props, name):
 
 # Notion profile bullets use "name · period · role". A role change may add
 # another period after a comma on the same bullet.
-PROFILE_PERIOD = r"\d{4}\.\d{1,2}(?:\.\d{1,2})?(?:\s*[–—~-]\s*(?:현재|\d{1,4}(?:\.\d{1,2}){0,2}))?"
+PROFILE_PERIOD = r"\d{4}\.\d{1,2}(?:\.\d{1,2})?(?:\s*[–—~-]\s*(?:현재|current|\d{1,4}(?:\.\d{1,2}){0,2}))?"
 
 
 def profile_records(body):

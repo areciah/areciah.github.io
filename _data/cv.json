@@ -28,14 +28,14 @@
     {
       "title": "소속과 팀",
       "id": "section-2",
-      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국팀 리더\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수, 2026.09–현재 RubiyaLab Expedition 선수",
+      "body": "- <b>Jinddabi's</b> · 2026.05–current · CTF Player, Korean read\n- <b>TOOR Junior</b> · 2025.08–2026.02 Member, 2026.03–현재 Web Team Leader\n- <b>SecurityFirst</b> · 2025.08–current · Member\n- <b>RubiyaLab CTF</b> · 2025.02-current · CTF Player, 2026.09–현재 <b>RubiyaLab Expedition</b> CTF Player",
       "teams": [
         {
           "name": "Jinddabi's",
           "roles": [
             {
-              "period": "2026.05–현재",
-              "detail": "CTF 선수, 한국팀 리더"
+              "period": "2026.05–current",
+              "detail": "CTF Player, Korean read"
             }
           ]
         },
@@ -44,11 +44,11 @@
           "roles": [
             {
               "period": "2026.03–현재",
-              "detail": "웹팀 리더"
+              "detail": "Web Team Leader"
             },
             {
               "period": "2025.08–2026.02",
-              "detail": "동아리원"
+              "detail": "Member"
             }
           ]
         },
@@ -56,8 +56,8 @@
           "name": "SecurityFirst",
           "roles": [
             {
-              "period": "2025.08–현재",
-              "detail": "동아리원"
+              "period": "2025.08–current",
+              "detail": "Member"
             }
           ]
         },
@@ -66,11 +66,11 @@
           "roles": [
             {
               "period": "2026.09–현재",
-              "detail": "RubiyaLab Expedition 선수"
+              "detail": "<b>RubiyaLab Expedition</b> CTF Player"
             },
             {
-              "period": "2025.02–현재",
-              "detail": "CTF 선수"
+              "period": "2025.02-current",
+              "detail": "CTF Player"
             }
           ]
         }

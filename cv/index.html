@@ -55,7 +55,7 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
             <h3>{{ team.name | markdownify | remove: '<p>' | remove: '</p>' }}</h3>
             <ul class="cv-roles{% if team.roles.size > 1 %} cv-roles-history{% endif %}">
               {% for role in team.roles %}
-              <li class="cv-role{% if role.period contains '현재' %} cv-role-current{% endif %}">
+              <li class="cv-role{% if role.period contains '현재' or role.period contains 'current' %} cv-role-current{% endif %}">
                 {% if role.detail != empty %}<div class="cv-role-name">{{ role.detail | markdownify }}</div>{% endif %}
                 <span class="cv-role-period">{{ role.period | escape }}</span>
               </li>
