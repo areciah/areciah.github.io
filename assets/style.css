@@ -89,8 +89,10 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .awards-preview h3 { margin: 0; font-size: 1.5rem; letter-spacing: -.04em; }
 .awards-preview ul { display: grid; gap: 14px; margin: 18px 0 0; padding: 0; list-style: none; }
 .awards-preview li { display: grid; gap: 5px; padding-top: 13px; border-top: 1px solid var(--line); }
-.awards-preview li span, .awards-preview li small { color: var(--soft); font: .72rem var(--mono); }
-.awards-preview li strong { font-size: .95rem; }
+.awards-preview li p { margin: 0; }
+.award-title { font-size: 1rem; font-weight: 650; line-height: 1.5; }
+.award-meta { display: flex; flex-wrap: wrap; align-items: baseline; gap: .25rem .85rem; color: var(--muted); font-size: .84rem; }
+.award-meta > span, .project-period { font: .78rem/1.5 var(--mono); color: var(--soft); }
 .awards-empty { margin: 25px 0 20px; color: var(--soft); font-size: .9rem; line-height: 1.7; }
 .awards-preview > a { align-self: flex-start; margin-top: auto; padding-top: 20px; color: var(--accent); font-size: .83rem; font-weight: 700; }
 .awards-preview > a:hover { text-decoration: underline; text-underline-offset: 4px; }
@@ -291,6 +293,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
   overflow-wrap: anywhere;
 }
 .project-summary:hover, .project-summary:focus-visible { background: var(--surface); }
+.project-meta { display: flex; flex-wrap: wrap; align-items: baseline; justify-content: space-between; gap: .35rem 1rem; }
 .project-topic { color: var(--accent); font: .78rem var(--mono); }
 .project-summary h3 { margin: 10px 0 6px; font-size: 1.4rem; }
 .project-summary p { margin: 0; color: var(--muted); line-height: 1.65; }

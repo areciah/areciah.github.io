@@ -1,5 +1,8 @@
 <a class="project-summary" href="{{ project.url | relative_url }}">
-  <span class="project-topic">{{ project.topic | escape }}</span>
+  <div class="project-meta">
+    {% if project.topic and project.topic != empty %}<span class="project-topic">{{ project.topic | escape }}</span>{% endif %}
+    {% if include.show_period and project.period and project.period != empty %}<span class="project-period">{{ project.period | escape }}</span>{% endif %}
+  </div>
   <h3>{{ project.title | escape }}</h3>
   <p>{{ project.description | escape }}</p>
 </a>

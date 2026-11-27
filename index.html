@@ -10,6 +10,11 @@ layout: default
       <a class="button button-primary" href="{{ '/posts/' | relative_url }}">전체 글</a>
       <a class="button button-quiet" href="{{ '/projects/' | relative_url }}">프로젝트</a>
     </div>
+    {% assign contacts = cv.sections | where: 'title', 'SNS·연락처' | first %}
+    {% if contacts.body and contacts.body != empty %}
+    <div class="profile-notes cv-contacts" role="group" aria-label="SNS·연락처">{{ contacts.body | markdownify }}</div>
+    {% include contact-symbols.html %}
+    {% endif %}
     {% assign latest_post = site.posts.first %}
     {% if latest_post %}
     <a class="hero-latest" href="{{ latest_post.url | relative_url }}">
@@ -50,13 +55,26 @@ layout: default
     <div class="work-list">
       {% if site.projects.size > 0 %}
       {% for project in site.projects limit:2 %}
-          {% include project-summary.html %}
+          {% include project-summary.html show_period=true %}
       {% endfor %}
       {% else %}<div class="work-empty">아직 공개한 프로젝트가 없습니다.</div>{% endif %}
     </div>
     <aside class="awards-preview" id="awards" aria-labelledby="awards-preview-title">
       <h3 id="awards-preview-title">수상 내역</h3>
-      {% if cv.awards.size > 0 %}
+      {% assign awards_section = cv.sections | where: 'id', 'awards' | first %}
+      {% if awards_section.records.size > 0 %}
+      <ul>
+        {% for award in awards_section.records limit:2 %}
+        <li>
+          <div class="award-title">{{ award.title | markdownify }}</div>
+          <div class="award-meta">
+            <span>{{ award.period | escape }}</span>
+            {% if award.detail != empty %}<div>{{ award.detail | markdownify }}</div>{% endif %}
+          </div>
+        </li>
+        {% endfor %}
+      </ul>
+      {% elsif cv.awards.size > 0 %}
       <ul>{% for award in cv.awards limit:2 %}<li>{{ award | markdownify }}</li>{% endfor %}</ul>
       {% else %}<p class="awards-empty">아직 공개한 수상 내역이 없습니다.</p>{% endif %}
       <a href="{{ '/cv/' | relative_url }}#awards">전체 수상 내역</a>
