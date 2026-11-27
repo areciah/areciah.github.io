@@ -109,7 +109,12 @@
     {
       "title": "사용 언어",
       "id": "section-5",
-      "body": "Python · PHP · C · JavaScript\n\n[GitHub 프로필](https://github.com/areciah/areciah)"
+      "body": "Python · PHP · C · JavaScript"
+    },
+    {
+      "title": "SNS·연락처",
+      "id": "section-6",
+      "body": "- [GitHub · @areciah](https://github.com/areciah)"
     }
   ],
   "awards": [
