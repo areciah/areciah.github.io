@@ -335,11 +335,26 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .cv-section > h2 { margin: 0 0 1.25rem; letter-spacing: -.04em; }
 .cv-entries { list-style: none; padding: 0; margin: 0; }
 .cv-entry { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 1.25rem; align-items: baseline; padding-block: 1.15rem; break-inside: avoid; }
-.cv-team { padding-block: 1rem; break-inside: avoid; }
+.cv-team { padding-block: 1.05rem; break-inside: avoid; }
+.cv-team:first-child { padding-top: 0; }
 .cv-team + .cv-team { border-top: 1px solid var(--line); }
-.cv-team h3 { margin: 0 0 .45rem; font-size: 1.08rem; }
-.cv-team .cv-entry { padding-block: .25rem; border: 0; }
-.cv-team .cv-entry-body p { margin: 0; }
+.cv-team h3 { margin: 0 0 .35rem; font-size: 1.18rem; letter-spacing: -.025em; overflow-wrap: anywhere; }
+.cv-roles { margin: 0; padding: 0; list-style: none; }
+.cv-role { display: flex; align-items: baseline; flex-wrap: wrap; gap: .15rem 1rem; color: var(--muted); }
+.cv-role-name { overflow-wrap: anywhere; }
+.cv-role-name p { margin: 0; line-height: 1.65; }
+.cv-role-period { margin-inline-start: auto; color: var(--soft); font: .78rem/1.6 var(--mono); }
+.cv-roles-history { margin-top: .65rem; }
+.cv-roles-history .cv-role { position: relative; padding-inline-start: 1rem; }
+.cv-roles-history .cv-role + .cv-role { padding-top: .4rem; }
+.cv-roles-history .cv-role::before { content: ""; position: absolute; left: 0; top: .66em; width: 6px; height: 6px; border-radius: 50%; background: var(--soft); }
+.cv-roles-history .cv-role + .cv-role::before { top: calc(.66em + .4rem); }
+.cv-roles-history .cv-role:not(:last-child)::after { content: ""; position: absolute; left: 2.5px; top: calc(.66em + 6px); bottom: calc(-.66em - .4rem); width: 1px; background: var(--line); }
+.cv-roles-history .cv-role-current::before { background: var(--accent); }
+@media screen and (max-width: 640px) {
+  .cv-role { flex-direction: column; align-items: start; }
+  .cv-role-period { margin: 0; }
+}
 .cv-entry + .cv-entry { border-top: 1px solid var(--line); }
 .cv-period { color: var(--accent-soft); font: .83rem/1.6 var(--mono); font-variant-numeric: tabular-nums; }
 .cv-entry-body { grid-column: 2; min-width: 0; overflow-wrap: anywhere; }
