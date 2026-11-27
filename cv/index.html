@@ -44,7 +44,23 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
     {% for section in cv.sections %}
     <section class="cv-section" id="{{ section.id }}">
       <h2>{{ section.title | escape }}</h2>
-      {% if section.records %}
+      {% if section.teams %}
+      <ul class="cv-entries">
+        {% for team in section.teams %}
+        <li class="cv-team">
+          <h3>{{ team.name | markdownify | remove: '<p>' | remove: '</p>' }}</h3>
+          <ul class="cv-entries">
+            {% for role in team.roles %}
+            <li class="cv-entry">
+              <span class="cv-period">{{ role.period | escape }}</span>
+              <div class="cv-entry-body">{{ role.detail | markdownify }}</div>
+            </li>
+            {% endfor %}
+          </ul>
+        </li>
+        {% endfor %}
+      </ul>
+      {% elsif section.records %}
       <ul class="cv-entries">
         {% for record in section.records %}
         <li class="cv-entry">

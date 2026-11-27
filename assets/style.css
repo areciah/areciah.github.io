@@ -335,6 +335,11 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .cv-section > h2 { margin: 0 0 1.25rem; letter-spacing: -.04em; }
 .cv-entries { list-style: none; padding: 0; margin: 0; }
 .cv-entry { display: grid; grid-template-columns: 10.5rem minmax(0, 1fr); gap: 1.25rem; align-items: baseline; padding-block: 1.15rem; break-inside: avoid; }
+.cv-team { padding-block: 1rem; break-inside: avoid; }
+.cv-team + .cv-team { border-top: 1px solid var(--line); }
+.cv-team h3 { margin: 0 0 .45rem; font-size: 1.08rem; }
+.cv-team .cv-entry { padding-block: .25rem; border: 0; }
+.cv-team .cv-entry-body p { margin: 0; }
 .cv-entry + .cv-entry { border-top: 1px solid var(--line); }
 .cv-period { color: var(--accent-soft); font: .83rem/1.6 var(--mono); font-variant-numeric: tabular-nums; }
 .cv-entry-body { grid-column: 2; min-width: 0; overflow-wrap: anywhere; }

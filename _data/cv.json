@@ -29,36 +29,55 @@
       "title": "소속과 팀",
       "id": "section-2",
       "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국 리드\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab Expedition</b> · 2025.09–현재 · CTF 선수\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수",
-      "records": [
+      "teams": [
         {
-          "title": "<b>Jinddabi's</b>",
-          "period": "2026.05–현재",
-          "detail": "CTF 선수, 한국 리드"
+          "name": "Jinddabi's",
+          "roles": [
+            {
+              "period": "2026.05–현재",
+              "detail": "CTF 선수, 한국 리드"
+            }
+          ]
         },
         {
-          "title": "<b>TOOR Junior</b>",
-          "period": "2025.08–2026.02",
-          "detail": "동아리원"
+          "name": "TOOR Junior",
+          "roles": [
+            {
+              "period": "2026.03–현재",
+              "detail": "웹팀 리더"
+            },
+            {
+              "period": "2025.08–2026.02",
+              "detail": "동아리원"
+            }
+          ]
         },
         {
-          "title": "<b>TOOR Junior</b>",
-          "period": "2026.03–현재",
-          "detail": "웹팀 리더"
+          "name": "SecurityFirst",
+          "roles": [
+            {
+              "period": "2025.08–현재",
+              "detail": "동아리원"
+            }
+          ]
         },
         {
-          "title": "<b>SecurityFirst</b>",
-          "period": "2025.08–현재",
-          "detail": "동아리원"
+          "name": "RubiyaLab Expedition",
+          "roles": [
+            {
+              "period": "2025.09–현재",
+              "detail": "CTF 선수"
+            }
+          ]
         },
         {
-          "title": "<b>RubiyaLab Expedition</b>",
-          "period": "2025.09–현재",
-          "detail": "CTF 선수"
-        },
-        {
-          "title": "<b>RubiyaLab CTF</b>",
-          "period": "2025.02–현재",
-          "detail": "CTF 선수"
+          "name": "RubiyaLab CTF",
+          "roles": [
+            {
+              "period": "2025.02–현재",
+              "detail": "CTF 선수"
+            }
+          ]
         }
       ]
     },

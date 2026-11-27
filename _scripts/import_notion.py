@@ -188,6 +188,23 @@ def profile_records(body):
     return records
 
 
+def team_histories(records):
+    teams = {}
+    for record in records:
+        title = record["title"]
+        # Bold names can arrive as Markdown or HTML from Notion.
+        name = re.sub(r"</?(?:b|strong)>|\*\*", "", title).strip()
+        history = teams.setdefault(name, {"name": name, "roles": []})
+        history["roles"].append({"period": record["period"], "detail": record["detail"]})
+    def start_date(role):
+        start = re.match(r"[0-9.]+", role["period"]).group()
+        return tuple(int(part) for part in start.split("."))
+
+    for team in teams.values():
+        team["roles"].sort(key=start_date, reverse=True)
+    return list(teams.values())
+
+
 def write_profile(title, summary, markdown):
     intro, *parts = re.split(r"^## (.+?)\s*$", markdown, flags=re.M)
     sections = []
@@ -196,7 +213,9 @@ def write_profile(title, summary, markdown):
         anchor = "awards" if heading == "수상 내역" else f"section-{len(sections) + 1}"
         section = {"title": heading, "id": anchor, "body": body.strip()}
         records = profile_records(body)
-        if records:
+        if records and heading == "소속과 팀":
+            section["teams"] = team_histories(records)
+        elif records:
             section["records"] = records
         sections.append(section)
         if anchor == "awards":
