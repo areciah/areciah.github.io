@@ -1,7 +1,7 @@
 {
   "name": "arecia",
-  "headline": "CTF와 웹 보안 연구",
-  "intro": "공격자의 관점에서 시스템을 살펴보며 오펜시브 보안 연구자를 목표로 공부하고 있습니다. CTF에서는 웹 문제를 풀고, 대회를 운영할 때는 직접 문제와 인프라를 만듭니다.",
+  "headline": "취약점 분석 및 AI 활용 연구",
+  "intro": "오펜시브 보안 연구자를 목표로 웹 보안을 공부하고 있습니다. CTF에서는 주로 웹 문제를 풉니다. 대회를 운영할 때는 문제를 출제하고 참가자들이 사용할 환경을 구축합니다.",
   "sections": [
     {
       "title": "수상 내역",
@@ -28,14 +28,14 @@
     {
       "title": "소속과 팀",
       "id": "section-2",
-      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국 리드\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab Expedition</b> · 2025.09–현재 · CTF 선수\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수",
+      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국팀 리더\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수, 2026.09–현재 RubiyaLab Expedition 선수",
       "teams": [
         {
           "name": "Jinddabi's",
           "roles": [
             {
               "period": "2026.05–현재",
-              "detail": "CTF 선수, 한국 리드"
+              "detail": "CTF 선수, 한국팀 리더"
             }
           ]
         },
@@ -62,17 +62,12 @@
           ]
         },
         {
-          "name": "RubiyaLab Expedition",
-          "roles": [
-            {
-              "period": "2025.09–현재",
-              "detail": "CTF 선수"
-            }
-          ]
-        },
-        {
           "name": "RubiyaLab CTF",
           "roles": [
+            {
+              "period": "2026.09–현재",
+              "detail": "RubiyaLab Expedition 선수"
+            },
             {
               "period": "2025.02–현재",
               "detail": "CTF 선수"
@@ -82,29 +77,29 @@
       ]
     },
     {
-      "title": "외부활동",
+      "title": "외부 활동",
       "id": "section-3",
-      "body": "- <b>POSTECH-KAIST 학생대제전 해킹대회</b> · 2026.09.18. 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다.\n- <b>APEX (Allied Power Exercise)</b> · 2026.09.14–18. UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다.\n- <b>Whitehat School 4기 Team CTF Challenge</b> · 2026.07. Web-Guessing 문제 출제와 운영을 맡았습니다.\n- <b>양영디지털고등학교</b> · 2025.08.11–12. 네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다.",
+      "body": "- <b>POSTECH-KAIST 학생대제전 해킹대회</b> · 2026.09.18. 대회 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제했고, 스코어보드를 개발하고 대회 인프라를 구축해 운영했습니다.\n- <b>APEX (Allied Power Exercise)</b> · 2026.09.14–18. UST로 참가해 레드팀과 블루팀의 보고서를 평가하고 블랙팀으로 활동했습니다.\n- <b>Whitehat School 4기 Team CTF Challenge</b> · 2026.07. Web-Guessing 문제를 출제하고 운영했습니다.\n- <b>양영디지털고등학교</b> · 2025.08.11–12. 네트워크 이론을 가르치고 Packet Tracer 실습을 진행했습니다.",
       "records": [
         {
           "title": "<b>POSTECH-KAIST 학생대제전 해킹대회</b>",
           "period": "2026.09.18",
-          "detail": "운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다."
+          "detail": "대회 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제했고, 스코어보드를 개발하고 대회 인프라를 구축해 운영했습니다."
         },
         {
           "title": "<b>APEX (Allied Power Exercise)</b>",
           "period": "2026.09.14–18",
-          "detail": "UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다."
+          "detail": "UST로 참가해 레드팀과 블루팀의 보고서를 평가하고 블랙팀으로 활동했습니다."
         },
         {
           "title": "<b>Whitehat School 4기 Team CTF Challenge</b>",
           "period": "2026.07",
-          "detail": "Web-Guessing 문제 출제와 운영을 맡았습니다."
+          "detail": "Web-Guessing 문제를 출제하고 운영했습니다."
         },
         {
           "title": "<b>양영디지털고등학교</b>",
           "period": "2025.08.11–12",
-          "detail": "네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다."
+          "detail": "네트워크 이론을 가르치고 Packet Tracer 실습을 진행했습니다."
         }
       ]
     },
