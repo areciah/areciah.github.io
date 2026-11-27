@@ -1,6 +1,8 @@
 """Build-time import, run from the root of a fresh checkout."""
 import base64
 import hashlib
+import html as html_entities
+import mimetypes
 import json
 import os
 import re
@@ -10,7 +12,7 @@ from datetime import date
 from pathlib import Path
 from urllib.error import HTTPError
 from urllib.parse import urlsplit
-from urllib.request import Request, urlopen
+from urllib.request import HTTPRedirectHandler, Request, build_opener, urlopen
 from uuid import UUID
 
 
@@ -52,6 +54,57 @@ def plain(items):
 LOCKED = "발행 (비밀번호)"
 
 
+def notion_image_url(url):
+    parts = urlsplit(url)
+    host = parts.hostname or ""
+    return parts.scheme == "https" and host.endswith(
+        (".amazonaws.com", ".notion.so", ".notion.com", ".notionusercontent.com")
+    )
+
+
+class ImageRedirect(HTTPRedirectHandler):
+    def redirect_request(self, req, fp, code, msg, headers, newurl):
+        if not notion_image_url(newurl):
+            raise ValueError("Notion 사진의 리디렉션 주소를 확인하세요.")
+        return super().redirect_request(req, fp, code, msg, headers, newurl)
+
+
+def embed_notion_image(url):
+    # No Notion token or signed URL is written to the page or build log.
+    try:
+        with build_opener(ImageRedirect()).open(url, timeout=60) as response:
+            mime = response.headers.get_content_type()
+            if mime == "application/octet-stream":
+                mime = mimetypes.guess_type(urlsplit(url).path)[0] or mime
+            if not mime.startswith("image/"):
+                raise ValueError("Notion 사진 주소에서 이미지가 반환되지 않았습니다.")
+            data = response.read()
+    except OSError:
+        raise ValueError("Notion 사진을 내려받지 못했습니다. 파일 접근 권한을 확인하고 다시 빌드하세요.") from None
+    if not data:
+        raise ValueError("빈 Notion 사진을 받았습니다.")
+    return f"data:{mime};base64," + base64.b64encode(data).decode("ascii")
+
+
+def notion_image_tag(state, silent):
+    # Notion v2 also uses this form for images with block attributes.
+    match = re.match(r'<image\s+([^>]+)>(.*?)</image>', state.src[state.pos:], re.S)
+    if not match:
+        return False
+    source = re.search(r'(?:^|\s)source="([^"]+)"', match[1])
+    if not source:
+        return False
+    url = html_entities.unescape(source[1])
+    if not state.md.validateLink(url):
+        return False
+    if not silent:
+        token = state.push("image", "img", 0)
+        token.attrSet("src", url)
+        token.children = state.md.parseInline(html_entities.unescape(match[2]), state.env)[0].children
+    state.pos += match.end()
+    return True
+
+
 def encrypt_article(markdown, password):
     from cryptography.hazmat.primitives.ciphers.aead import AESGCM
     from markdown_it import MarkdownIt
@@ -74,7 +127,22 @@ def encrypt_article(markdown, password):
     salt, nonce = os.urandom(16), os.urandom(12)
     iterations = 600_000
     key = hashlib.pbkdf2_hmac("sha256", password.encode(), salt, iterations, dklen=32)
-    html = MarkdownIt("commonmark", {"html": False, "highlight": highlight_fence}).enable("table").render(markdown)
+    parser = MarkdownIt("commonmark", {"html": False, "highlight": highlight_fence}).enable("table")
+    parser.inline.ruler.before("html_inline", "notion_image", notion_image_tag)
+    image_cache = {}
+    render_image = parser.renderer.rules["image"]
+
+    def private_image(tokens, idx, options, env):
+        token = tokens[idx]
+        url = token.attrGet("src")
+        if notion_image_url(url):
+            if url not in image_cache:
+                image_cache[url] = embed_notion_image(url)
+            token.attrSet("src", image_cache[url])
+        return render_image(tokens, idx, options, env)
+
+    parser.renderer.rules["image"] = private_image
+    html = parser.render(markdown)
     encrypted = AESGCM(key).encrypt(nonce, html.encode(), None)
     return {"iterations": iterations, **{
         name: base64.b64encode(value).decode("ascii")
