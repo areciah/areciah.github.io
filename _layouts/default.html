@@ -9,7 +9,7 @@
     <title>{% if page.title %}{{ page.title | escape }} · {% endif %}{{ site.title | escape }}</title>
     <link rel="icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1" type="image/png">
     <link rel="apple-touch-icon" href="{{ '/assets/archive-icon.png' | relative_url }}?v=box-1">
-    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v=writing-first-1">
+    <link rel="stylesheet" href="{{ '/assets/style.css' | relative_url }}?v=footer-contacts-1">
     <script>try{if(!sessionStorage.getItem('arecia-intro-archive-v5'))document.documentElement.classList.add('intro-pending')}catch(e){document.documentElement.classList.add('intro-pending')}</script>
   </head>
   <body>
@@ -51,7 +51,7 @@
         <div class="footer-meta">
           {% assign contacts = site.data.cv.sections | where: 'title', 'SNS·연락처' | first %}
           {% if contacts.body and contacts.body != empty %}
-          <nav class="footer-contacts" aria-label="SNS·연락처">{{ contacts.body | markdownify }}</nav>
+          <nav class="footer-contacts" aria-label="SNS·연락처">{{ contacts.body | replace: '<li>', '<li markdown="span">' | markdownify }}</nav>
           {% include contact-symbols.html %}
           {% endif %}
           <span>© {{ 'now' | date: '%Y' }} {{ site.title }} / END OF FILE</span>
@@ -61,6 +61,6 @@
     {% if page.layout == 'post' or page.layout == 'project' or page.layout == 'locked-post' %}
     <script src="{{ '/assets/code-blocks.js' | relative_url }}" defer></script>
     {% endif %}
-    <script src="{{ '/assets/site.js' | relative_url }}?v=status-2" defer></script>
+    <script src="{{ '/assets/site.js' | relative_url }}?v=footer-contacts-1" defer></script>
   </body>
 </html>

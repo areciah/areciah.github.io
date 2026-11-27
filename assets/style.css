@@ -403,6 +403,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .footer-contacts svg { display: none; }
 @media screen {
   .footer-contacts ul { display: flex; justify-content: flex-end; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+  .footer-contacts li:empty { display: none; }
   .footer-contacts li + li { margin: 0; }
   .footer-contacts a:is(.contact-icon, .contact-with-label) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--text); text-decoration: none; }
   .footer-contacts .contact-icon { width: 44px; font-size: 0; }
