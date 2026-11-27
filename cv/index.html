@@ -21,12 +21,6 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
       <a href="#projects">프로젝트</a>
       {% for section in profile_sections %}<a href="#{{ section.id }}">{{ section.title | escape }}</a>{% endfor %}
       <a href="{{ '/posts/' | relative_url }}">글</a>
-      <button class="cv-print" type="button" data-print-cv aria-label="PDF 저장 또는 인쇄" title="PDF 저장 또는 인쇄">
-        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-          <path d="M7 8V3h10v5M7 17H4a1 1 0 0 1-1-1v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1h-3"/>
-          <path d="M7 14h10v7H7zM17 11h1"/>
-        </svg>
-      </button>
     </nav>
     <div class="cv-content">
       <section class="cv-section" id="projects">
@@ -82,6 +76,12 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
         {% endif %}
       </section>
       {% endfor %}
+      <button class="cv-print" type="button" data-print-cv aria-label="PDF 저장 또는 인쇄" title="PDF 저장 또는 인쇄">
+        <svg width="19" height="19" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <path d="M7 8V3h10v5M7 17H4a1 1 0 0 1-1-1v-5a3 3 0 0 1 3-3h12a3 3 0 0 1 3 3v5a1 1 0 0 1-1 1h-3"/>
+          <path d="M7 14h10v7H7zM17 11h1"/>
+        </svg>
+      </button>
     </div>
   </div>
 </div>

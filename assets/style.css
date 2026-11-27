@@ -123,6 +123,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .site-footer { min-height: 148px; padding: 34px max(28px, calc((100vw - 1160px)/2)); display: flex; justify-content: space-between; align-items: end; gap: 30px; border-top: 1px solid var(--line); background: #100d12; color: var(--soft); font-size: .74rem; }
 .footer-mark { display: inline-flex; align-items: center; gap: 8px; color: var(--text); font: 700 1.08rem "Apple SD Gothic Neo", sans-serif; }
 .footer-mark img { width: 29px; height: 29px; object-fit: contain; }
+.footer-meta { display: grid; justify-items: end; gap: .65rem; min-width: 0; max-width: 100%; margin-inline-start: auto; text-align: end; }
 .site-footer p { margin: 12px 0 0; }
 
 .post-page { max-width: 840px; margin-inline: auto; padding: 76px 28px 120px; }
@@ -158,7 +159,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 .cv-header h1 { margin: 0; font-size: clamp(4.2rem, 9vw, 8rem); font-weight: 600; line-height: 1; letter-spacing: -.075em; }
 .cv-headline { margin: 29px 0 0; font-size: clamp(1.3rem, 2.6vw, 2rem); font-weight: 600; letter-spacing: -.045em; }
 .cv-summary { max-width: 620px; margin: 12px 0 0; color: var(--muted); line-height: 1.85; word-break: keep-all; }
-.cv-print { align-self: start; display: inline-grid; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
+.cv-print { display: grid; margin: .75rem 0 0 auto; place-items: center; width: 44px; height: 44px; border: 0; border-radius: 50%; background: transparent; color: var(--muted); cursor: pointer; }
 .cv-print:hover, .cv-print:focus-visible { background: var(--raised); color: var(--accent-soft); }
 .cv-grid { display: grid; grid-template-columns: 190px minmax(0, 1fr); gap: 65px; border-top: 1px solid var(--line); }
 .cv-index { position: sticky; top: 24px; display: flex; flex-direction: column; align-self: start; gap: 18px; padding-top: 45px; font-size: .85rem; }
@@ -401,7 +402,7 @@ main { background: radial-gradient(ellipse 75% 500px at 55% 0, #512c3726, transp
 
 .footer-contacts svg { display: none; }
 @media screen {
-  .footer-contacts ul { display: flex; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; padding: 0; list-style: none; }
+  .footer-contacts ul { display: flex; justify-content: flex-end; flex-wrap: wrap; align-items: center; gap: .6rem; margin: 0; padding: 0; list-style: none; }
   .footer-contacts li + li { margin: 0; }
   .footer-contacts a:is(.contact-icon, .contact-with-label) { display: inline-flex; align-items: center; justify-content: center; min-height: 44px; border: 1px solid var(--line); border-radius: .65rem; background: var(--surface); color: var(--text); text-decoration: none; }
   .footer-contacts .contact-icon { width: 44px; font-size: 0; }
