@@ -165,13 +165,40 @@ def rich(props, name):
     return plain(props.get(name, {}).get("rich_text", []))
 
 
+# Notion profile bullets use "name · period · role". A role change may add
+# another period after a comma on the same bullet.
+PROFILE_PERIOD = r"\d{4}\.\d{1,2}(?:\.\d{1,2})?(?:\s*[–—~-]\s*(?:현재|\d{1,4}(?:\.\d{1,2}){0,2}))?"
+
+
+def profile_records(body):
+    records = []
+    for line in body.strip().splitlines():
+        if not line.strip():
+            continue
+        item = re.fullmatch(r"[-*] (.+?) · (.+)", line)
+        if not item:
+            return []
+        title, history = item.groups()
+        for entry in re.split(rf",\s*(?={PROFILE_PERIOD}(?:\s|$))", history):
+            match = re.fullmatch(rf"({PROFILE_PERIOD})(?:\.?\s+(?:·\s+)?(.+))?", entry.strip())
+            if not match:
+                return []
+            period, detail = match.groups()
+            records.append({"title": title, "period": period, "detail": detail or ""})
+    return records
+
+
 def write_profile(title, summary, markdown):
     intro, *parts = re.split(r"^## (.+?)\s*$", markdown, flags=re.M)
     sections = []
     awards = []
     for heading, body in zip(parts[::2], parts[1::2]):
         anchor = "awards" if heading == "수상 내역" else f"section-{len(sections) + 1}"
-        sections.append({"title": heading, "id": anchor, "body": body.strip()})
+        section = {"title": heading, "id": anchor, "body": body.strip()}
+        records = profile_records(body)
+        if records:
+            section["records"] = records
+        sections.append(section)
         if anchor == "awards":
             awards = [line[2:] for line in body.splitlines() if line.startswith(("- ", "* "))]
     profile = {"name": title, "headline": summary, "intro": intro.strip(),
@@ -188,6 +215,7 @@ def export_project(page, used):
     used.add(slug)
     title = next(plain(p["title"]) for p in props.values() if p["type"] == "title")
     meta = {"title": title, "topic": rich(props, "주제"), "role": rich(props, "맡은 역할"),
+            "period": rich(props, "기간"),
             "description": rich(props, "요약"), "render_with_liquid": False}
     header = "\n".join(f"{k}: {json.dumps(v, ensure_ascii=False)}" for k, v in meta.items())
     path = Path("_projects", slug + ".md")

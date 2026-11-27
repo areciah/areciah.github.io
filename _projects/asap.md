@@ -1,6 +1,7 @@
 ---
 notion_managed: true
 title: "ASAP"
+period: "2024.05–2024.09"
 topic: "앱 보안"
 role: "취약점 스캐너 모듈"
 description: "앱 취약점 분석 자동화 도구."

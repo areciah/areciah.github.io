@@ -1,6 +1,7 @@
 ---
 notion_managed: true
 title: "Fuzzmap"
+period: "2024.11–현재"
 topic: "보안 연구 도구"
 role: ""
 description: "오펜시브 보안 도구 개발 및 연구."

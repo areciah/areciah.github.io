@@ -6,22 +6,105 @@
     {
       "title": "수상 내역",
       "id": "awards",
-      "body": "- <b>DEF CON CTF 34 Finals 7위</b> · 2026.08 · Jinddabi's\n- <b>DEF CON CTF 34 Qualifier 6위</b> · 2026.05 · Jinddabi's\n- <b>CodeGate Quals 2026 5위</b> · 2026.03 · 육개장치즈라면"
+      "body": "- <b>DEF CON CTF 34 Finals 7위</b> · 2026.08 · Jinddabi's\n- <b>DEF CON CTF 34 Qualifier 6위</b> · 2026.05 · Jinddabi's\n- <b>CodeGate Quals 2026 5위</b> · 2026.03 · 육개장치즈라면",
+      "records": [
+        {
+          "title": "<b>DEF CON CTF 34 Finals 7위</b>",
+          "period": "2026.08",
+          "detail": "Jinddabi's"
+        },
+        {
+          "title": "<b>DEF CON CTF 34 Qualifier 6위</b>",
+          "period": "2026.05",
+          "detail": "Jinddabi's"
+        },
+        {
+          "title": "<b>CodeGate Quals 2026 5위</b>",
+          "period": "2026.03",
+          "detail": "육개장치즈라면"
+        }
+      ]
     },
     {
       "title": "소속과 팀",
       "id": "section-2",
-      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국 리드\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab Expedition</b> · 2025.09–현재 · CTF 선수\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수"
+      "body": "- <b>Jinddabi's</b> · 2026.05–현재 · CTF 선수, 한국 리드\n- <b>TOOR Junior</b> · 2025.08–2026.02 동아리원, 2026.03–현재 웹팀 리더\n- <b>SecurityFirst</b> · 2025.08–현재 · 동아리원\n- <b>RubiyaLab Expedition</b> · 2025.09–현재 · CTF 선수\n- <b>RubiyaLab CTF</b> · 2025.02–현재 · CTF 선수",
+      "records": [
+        {
+          "title": "<b>Jinddabi's</b>",
+          "period": "2026.05–현재",
+          "detail": "CTF 선수, 한국 리드"
+        },
+        {
+          "title": "<b>TOOR Junior</b>",
+          "period": "2025.08–2026.02",
+          "detail": "동아리원"
+        },
+        {
+          "title": "<b>TOOR Junior</b>",
+          "period": "2026.03–현재",
+          "detail": "웹팀 리더"
+        },
+        {
+          "title": "<b>SecurityFirst</b>",
+          "period": "2025.08–현재",
+          "detail": "동아리원"
+        },
+        {
+          "title": "<b>RubiyaLab Expedition</b>",
+          "period": "2025.09–현재",
+          "detail": "CTF 선수"
+        },
+        {
+          "title": "<b>RubiyaLab CTF</b>",
+          "period": "2025.02–현재",
+          "detail": "CTF 선수"
+        }
+      ]
     },
     {
       "title": "외부활동",
       "id": "section-3",
-      "body": "- <b>POSTECH-KAIST 학생대제전 해킹대회</b> · 2026.09.18. 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다.\n- <b>APEX (Allied Power Exercise)</b> · 2026.09.14–18. UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다.\n- <b>Whitehat School 4기 Team CTF Challenge</b> · 2026.07. Web-Guessing 문제 출제와 운영을 맡았습니다.\n- <b>양영디지털고등학교</b> · 2025.08.11–12. 네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다."
+      "body": "- <b>POSTECH-KAIST 학생대제전 해킹대회</b> · 2026.09.18. 운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다.\n- <b>APEX (Allied Power Exercise)</b> · 2026.09.14–18. UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다.\n- <b>Whitehat School 4기 Team CTF Challenge</b> · 2026.07. Web-Guessing 문제 출제와 운영을 맡았습니다.\n- <b>양영디지털고등학교</b> · 2025.08.11–12. 네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다.",
+      "records": [
+        {
+          "title": "<b>POSTECH-KAIST 학생대제전 해킹대회</b>",
+          "period": "2026.09.18",
+          "detail": "운영과 출제를 총괄했습니다. 웹 KoTH 2문제와 Jeopardy 1문제를 출제하고, 스코어보드 개발과 대회 인프라 구축·관리를 맡았습니다."
+        },
+        {
+          "title": "<b>APEX (Allied Power Exercise)</b>",
+          "period": "2026.09.14–18",
+          "detail": "UST로 참가해 레드팀·블루팀 보고서 평가와 블랙팀 활동을 수행했습니다."
+        },
+        {
+          "title": "<b>Whitehat School 4기 Team CTF Challenge</b>",
+          "period": "2026.07",
+          "detail": "Web-Guessing 문제 출제와 운영을 맡았습니다."
+        },
+        {
+          "title": "<b>양영디지털고등학교</b>",
+          "period": "2025.08.11–12",
+          "detail": "네트워크 이론과 Packet Tracer 실습을 9시간 강의했습니다."
+        }
+      ]
     },
     {
       "title": "교육",
       "id": "section-4",
-      "body": "- <b>순천향대학교 정보보호학과</b> · 2025.03–현재 · 재학\n- <b>Whitehat School 2기</b> · 2024.03–09 · 정보보안 교육"
+      "body": "- <b>순천향대학교 정보보호학과</b> · 2025.03–현재 · 재학\n- <b>Whitehat School 2기</b> · 2024.03–09 · 정보보안 교육",
+      "records": [
+        {
+          "title": "<b>순천향대학교 정보보호학과</b>",
+          "period": "2025.03–현재",
+          "detail": "재학"
+        },
+        {
+          "title": "<b>Whitehat School 2기</b>",
+          "period": "2024.03–09",
+          "detail": "정보보안 교육"
+        }
+      ]
     },
     {
       "title": "사용 언어",

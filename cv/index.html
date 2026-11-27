@@ -22,12 +22,39 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
     <div class="cv-content">
       <section class="cv-section" id="projects">
         <h2>프로젝트</h2>
-        {% for project in site.projects %}{% include project-summary.html %}{% endfor %}
+        {% assign projects = site.projects | sort: 'period', 'first' | reverse %}
+        <ul class="cv-entries">
+          {% for project in projects %}
+          <li class="cv-entry">
+            {% if project.period and project.period != empty %}<span class="cv-period">{{ project.period | escape }}</span>{% endif %}
+            <div class="cv-entry-body">
+              <h3><a href="{{ project.url | relative_url }}">{{ project.title | escape }}</a></h3>
+              {% if project.topic and project.topic != empty %}<p class="cv-topic">{{ project.topic | escape }}</p>{% endif %}
+              <p>{{ project.description | escape }}</p>
+              {% if project.role and project.role != empty %}<p><strong>맡은 역할</strong> {{ project.role | escape }}</p>{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
       </section>
       {% for section in cv.sections %}
       <section class="cv-section" id="{{ section.id }}">
         <h2>{{ section.title | escape }}</h2>
+        {% if section.records %}
+        <ul class="cv-entries">
+          {% for record in section.records %}
+          <li class="cv-entry">
+            <span class="cv-period">{{ record.period | escape }}</span>
+            <div class="cv-entry-body">
+              <div class="cv-entry-name">{{ record.title | markdownify }}</div>
+              {% if record.detail != empty %}{{ record.detail | markdownify }}{% endif %}
+            </div>
+          </li>
+          {% endfor %}
+        </ul>
+        {% else %}
         <div class="profile-notes">{{ section.body | markdownify }}</div>
+        {% endif %}
       </section>
       {% endfor %}
     </div>

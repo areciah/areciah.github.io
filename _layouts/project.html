@@ -7,6 +7,7 @@ layout: default
     <p class="post-meta">{{ page.topic | escape }}</p>
     <h1>{{ page.title | escape }}</h1>
     <p class="post-deck">{{ page.description | escape }}</p>
+    {% if page.period and page.period != empty %}<p><strong>기간</strong> · {{ page.period | escape }}</p>{% endif %}
     {% if page.role and page.role != empty %}<p><strong>맡은 역할</strong> · {{ page.role | escape }}</p>{% endif %}
   </header>
   <div class="post-body">{{ content }}</div>
