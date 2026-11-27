@@ -21,14 +21,7 @@ layout: default
     {% endif %}
   </div>
   <div class="archive-visual" aria-hidden="true">
-    <picture>
-      <source media="(prefers-reduced-motion: reduce)" srcset="{{ '/assets/hero-archive.png' | relative_url }}" type="image/png">
-      <img class="archive-image"
-           src="{{ '/assets/hero540.gif' | relative_url }}"
-           srcset="{{ '/assets/hero-archive.gif' | relative_url }} 420w, {{ '/assets/hero540.gif' | relative_url }} 540w, {{ '/assets/hero1080.gif' | relative_url }} 1080w"
-           sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) min(540px, calc(100vw - 56px)), (min-width: 1240px) 530px, 45vw"
-           alt="" width="540" height="540" fetchpriority="high">
-    </picture>
+    {% include archive-picture.html sizes="(max-width: 620px) calc(100vw - 36px), (max-width: 900px) min(540px, calc(100vw - 56px)), (min-width: 1240px) 530px, 45vw" %}
   </div>
 </section>
 

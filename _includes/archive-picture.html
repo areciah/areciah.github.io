@@ -1,0 +1,8 @@
+<picture>
+  <source media="(prefers-reduced-motion: reduce)" srcset="{{ '/assets/hero-archive.png' | relative_url }}" type="image/png">
+  <img class="archive-image"
+       src="{{ '/assets/hero540.gif' | relative_url }}"
+       srcset="{{ '/assets/hero-archive.gif' | relative_url }} 420w, {{ '/assets/hero540.gif' | relative_url }} 540w, {{ '/assets/hero1080.gif' | relative_url }} 1080w"
+       sizes="{{ include.sizes }}"
+       alt="" width="540" height="540" fetchpriority="high">
+</picture>
