@@ -76,6 +76,9 @@ description: arecia의 보안 연구, 프로젝트와 활동 기록.
           </li>
           {% endfor %}
         </ul>
+        {% elsif section.title == 'SNS·연락처' %}
+        <div class="profile-notes cv-contacts">{{ section.body | markdownify }}</div>
+        {% include contact-symbols.html %}
         {% else %}
         <div class="profile-notes">{{ section.body | markdownify }}</div>
         {% endif %}
